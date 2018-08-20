@@ -26,10 +26,13 @@ class CustomSegmentedControl: UIView {
         }
     }
     
-    convenience init(segmentTitles: [String]) {
+    convenience init(segmentTitles: [String], underLineColor: UIColor = .lightGray, selectedColor: UIColor = .gourmetPurple) {
         self.init()
         self.segmentTitles = segmentTitles
+        self.selectedColor = selectedColor
+        self.underLineColor = underLineColor
         updateView()
+        setUI()
     }
     
     let underLine: UIView = {
@@ -59,7 +62,6 @@ class CustomSegmentedControl: UIView {
     private func updateView(){
         buttonArray.removeAll()
         subviews.forEach {$0.removeFromSuperview()}
-        
         for title in segmentTitles {
             let button = UIButton(type: .system)
             button.setTitle(title, for: .normal)
@@ -71,7 +73,6 @@ class CustomSegmentedControl: UIView {
     }
     
     @objc func buttonTapped(_ button: UIButton){
-        
         for (index,btn) in buttonArray.enumerated(){
             btn.setTitleColor(.black, for: .normal)
             if btn == button{
@@ -84,11 +85,11 @@ class CustomSegmentedControl: UIView {
             }
         }
     }
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    
+    private func setUI(){
         addSubview(underLine)
         underLine.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 1.5)
-        
+
         addSubview(selectedLine)
         selectedLine.anchorProportion(view: self, widthRatio: 1/Double(segmentTitles.count), heightRatio: nil)
         selectedLine.anchor(top: nil, left: nil, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 2.5)
@@ -99,7 +100,7 @@ class CustomSegmentedControl: UIView {
         selectedLineRightAnchor.isActive = true
         selectedLineLeftAnchor.isActive = true
         
-        buttonArray[0].setTitleColor(.gourmetPurple, for: .normal)
+        buttonArray[0].setTitleColor(selectedColor, for: .normal)
         let buttonStack = UIStackView(arrangedSubviews: buttonArray)
         buttonStack.alignment = .fill
         buttonStack.distribution = .fillEqually

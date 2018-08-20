@@ -29,7 +29,11 @@ class MenuController: UIViewController {
     
     let scrollView: UIScrollView = {
         let sv = UIScrollView()
-        sv.backgroundColor = .red
+        sv.backgroundColor = .white
+        sv.isScrollEnabled = true
+        sv.isPagingEnabled = true
+        sv.showsVerticalScrollIndicator = false
+        sv.showsHorizontalScrollIndicator = false
         return sv
     }()
     
