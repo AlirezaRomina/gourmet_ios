@@ -27,6 +27,12 @@ class MenuController: UIViewController {
         return sc
     }()
     
+    let scrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.backgroundColor = .red
+        return sv
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -40,6 +46,9 @@ class MenuController: UIViewController {
         view.addSubview(segmentedControl)
         segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 5, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30)
         
+        
+        view.addSubview(scrollView)
+        scrollView.anchor(top: segmentedControl.bottomAnchor, left: guide.leftAnchor, bottom: guide.bottomAnchor, right: guide.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
 }
 
@@ -55,8 +64,9 @@ extension MenuController: UICollectionViewDataSource{
 }
 
 extension MenuController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard let indexPath = categoriesCollectionView.getMidVisibleIndexPath() else {return}
+        print(indexPath.item)
     }
 }
 
