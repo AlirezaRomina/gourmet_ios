@@ -22,13 +22,24 @@ class MenuController: UIViewController {
         return cv
     }()
     
+    let segmentedControl: CustomSegmentedControl = {
+        let sc = CustomSegmentedControl(segmentTitles: ["All", "For You"])
+        return sc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         let guide = view.safeAreaLayoutGuide
+        
         view.addSubview(categoriesCollectionView)
-        let height = min(170 * designHeightRatio, 170)
-        categoriesCollectionView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: height)
+        let ratio = min(designHeightRatio, 1)
+        categoriesCollectionView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 15 * ratio, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 170 * ratio)
+        
+        segmentedControl.delegate = self
+        view.addSubview(segmentedControl)
+        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 5, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30)
+        
     }
 }
 
@@ -46,5 +57,11 @@ extension MenuController: UICollectionViewDataSource{
 extension MenuController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
+    }
+}
+
+extension MenuController: CustomSegmentedControlDelegate{
+    func segmentSelected(segmentedController: CustomSegmentedControl, selectedIndex: Int) {
+        print(selectedIndex)
     }
 }

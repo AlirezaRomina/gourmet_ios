@@ -10,6 +10,15 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
+    var category: Category?{
+        didSet{
+            guard let category = category else {return}
+            headerLabel.text = category.name
+            descriptionLabel.text = category.description
+            backgroundImageView.loadImage(urlString: category.imageUrl)
+        }
+    }
+    
     var imageURL: String?{
         didSet{
             guard let imageURL = imageURL else {return}
