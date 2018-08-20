@@ -57,7 +57,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         labelStack.spacing = 3
         
         contentView.addSubview(labelStack)
-        labelStack.anchor(top: nil, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 25, paddingBottom: 20, paddingRight: 0, width: 0, height: 0)
+        labelStack.anchor(top: nil, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 25, paddingBottom: 12 * min(designHeightRatio,1), paddingRight: 0, width: 0, height: 0)
         labelStack.anchorProportion(view: contentView, widthRatio: 0.8, heightRatio: nil)
         
     }

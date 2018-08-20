@@ -23,21 +23,21 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         //Search
         let searchNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "search_unselected"), selectedImage: #imageLiteral(resourceName: "search_selected"))
         
-        //Plus
+        //QRCode
         let qrcodeNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "qrcode_unselected"), selectedImage: #imageLiteral(resourceName: "qrcode_selected"))
         
-        //Likes
+        //Location
         let locationNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "location_unselected"), selectedImage: #imageLiteral(resourceName: "location_selected"))
         
-        //User Profile
-        let userProfileNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"))
+        //Profile
+        let profileNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"))
         
         tabBar.tintColor = .black
         viewControllers = [homeNavController,
                            searchNavController,
                            qrcodeNavController,
                            locationNavController,
-                           userProfileNavController]
+                           profileNavController]
         
         // Modify tab bar insets
         guard let items = tabBar.items else {return}

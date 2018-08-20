@@ -27,7 +27,8 @@ class MenuController: UIViewController {
         view.backgroundColor = .white
         let guide = view.safeAreaLayoutGuide
         view.addSubview(categoriesCollectionView)
-        categoriesCollectionView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 170)
+        let height = min(170 * designHeightRatio, 170)
+        categoriesCollectionView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: height)
     }
 }
 
