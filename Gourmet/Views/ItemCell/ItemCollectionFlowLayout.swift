@@ -1,28 +1,27 @@
 //
-//  CategoriesFlowLayout.swift
+//  ItemCollectionFlowLayout.swift
 //  Gourmet
 //
-//  Created by Deniz Mersinlioglu on 20.08.2018.
+//  Created by Deniz Mersinlioglu on 21.08.2018.
 //  Copyright © 2018 Deniz Mersinlioglu. All rights reserved.
 //
 
 import UIKit
 
-class CategoriesFlowLayout: UICollectionViewFlowLayout {
-    
+class ItemCollectionFlowLayout: UICollectionViewFlowLayout {
     var zoomScale: CGFloat = 0.2
-    var alphaFactor: CGFloat = 0.8
+    var alphaFactor: CGFloat = 0.1
     
     override public func prepare() {
         super.prepare()
         if let collectionWidth = collectionView?.bounds.width, let collectionHeight = collectionView?.bounds.height {
             scrollDirection = .horizontal
-            minimumLineSpacing = -5
+            minimumLineSpacing = 10
             let safeAreaSpace: CGFloat = 10
-            let cellWidth = collectionWidth * 340 / 414
+            let cellWidth = collectionWidth * 165 / 414
             let cellHeight =  collectionHeight - safeAreaSpace
             self.itemSize = CGSize(width: cellWidth, height: cellHeight)
-            self.sectionInset = UIEdgeInsets(top: 0, left: (collectionWidth - cellWidth) / 2, bottom: 0, right: (collectionWidth - cellWidth) / 2)
+            self.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
         
     }
@@ -38,10 +37,9 @@ class CategoriesFlowLayout: UICollectionViewFlowLayout {
         guard let collectionView = collectionView else { return nil}
         
         let visibleRect: CGRect = CGRect(x: collectionView.contentOffset.x, y: collectionView.contentOffset.y, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
-        
         guard let layoutAttributes: [UICollectionViewLayoutAttributes] = super.layoutAttributesForElements(in: rect) else { return nil }
-        
-        let intersectAttributes: [UICollectionViewLayoutAttributes] = layoutAttributes.filter {$0.frame.intersects(rect)}
+        guard let layoutAttributesCopy : [UICollectionViewLayoutAttributes] = NSArray(array: layoutAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes] else { return nil }
+        let intersectAttributes: [UICollectionViewLayoutAttributes] = layoutAttributesCopy.filter {$0.frame.intersects(rect)}
         _ = intersectAttributes.map { (attribute: UICollectionViewLayoutAttributes) in
             let distance: CGFloat = visibleRect.midX - (attribute.center.x )
             let activeDistance  = collectionView.bounds.width
@@ -56,30 +54,6 @@ class CategoriesFlowLayout: UICollectionViewFlowLayout {
                 attribute.alpha = cellAlpha
             }
         }
-        return layoutAttributes
-    }
-    
-    //For pagination: cells will be in the center
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        
-        var offsetAdjustment: CGFloat = CGFloat(MAXFLOAT)
-        
-        if let collectionView = collectionView {
-            
-            let horizontalCenter: CGFloat = proposedContentOffset.x + ((collectionView.bounds.width) / 2)
-            let targetRect = CGRect(x: proposedContentOffset.x, y: 0.0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
-            
-            if let attributesArray = super.layoutAttributesForElements(in: targetRect) {
-                attributesArray.forEach { layoutAttribute in
-                    let itemHorizontalCenter: CGFloat? = layoutAttribute.center.x
-                    if abs((itemHorizontalCenter ?? 0.0) - horizontalCenter) < abs(offsetAdjustment) {
-                        offsetAdjustment = (itemHorizontalCenter ?? 0.0) - horizontalCenter
-                    }
-                }
-            }
-            return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
-        }
-        return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
-        
+        return layoutAttributesCopy
     }
 }

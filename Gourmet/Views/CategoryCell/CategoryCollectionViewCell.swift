@@ -19,13 +19,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var imageURL: String?{
-        didSet{
-            guard let imageURL = imageURL else {return}
-            backgroundImageView.loadImage(urlString: imageURL)
-        }
-    }
-    
     let backgroundImageView: CustomImageView = {
         let iv = CustomImageView()
         iv.image = UIImage(named: "hamburger")

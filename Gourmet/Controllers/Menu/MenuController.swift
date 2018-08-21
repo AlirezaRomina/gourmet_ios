@@ -10,9 +10,13 @@ import UIKit
 
 class MenuController: UIViewController {
     let cellId = "categoriesCell"
+    var restaurantId: Int64!
+    var categories = [Category]()
+    var allCategoryController: AllCategoryController!
+    var personalCategoryController: PersonalCategoryController!
     
     lazy var categoriesCollectionView: UICollectionView = {
-        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: CategoriesFlowLayout())
+        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: CategoryCollectionFlowLayout())
         cv.backgroundColor = .white
         cv.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         cv.delegate = self
@@ -27,13 +31,14 @@ class MenuController: UIViewController {
         return sc
     }()
     
-    let scrollView: UIScrollView = {
-        let sv = UIScrollView()
-        sv.backgroundColor = .white
-        sv.isScrollEnabled = true
-        sv.isPagingEnabled = true
+    lazy var containerScrollView: UIScrollView = {
+        let sv =  UIScrollView(frame: CGRect.zero)
+        sv.backgroundColor = .clear
+        sv.contentSize.width = view.bounds.width * 2
         sv.showsVerticalScrollIndicator = false
         sv.showsHorizontalScrollIndicator = false
+        sv.isPagingEnabled = true
+        sv.delegate = self
         return sv
     }()
     
@@ -48,12 +53,27 @@ class MenuController: UIViewController {
         
         segmentedControl.delegate = self
         view.addSubview(segmentedControl)
-        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 5, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30)
+        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 5 * ratio, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * ratio)
         
         
-        view.addSubview(scrollView)
-        scrollView.anchor(top: segmentedControl.bottomAnchor, left: guide.leftAnchor, bottom: guide.bottomAnchor, right: guide.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        view.addSubview(containerScrollView)
+        containerScrollView.anchor(top: segmentedControl.bottomAnchor, left: view.leftAnchor, bottom: guide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
+        allCategoryController = AllCategoryController()
+        containerScrollView.addSubview(allCategoryController.view)
+        allCategoryController.view.anchor(top: containerScrollView.topAnchor, left: containerScrollView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width:  view.bounds.width, height: 0)
+        allCategoryController.view.centerYAnchor.constraint(equalTo: containerScrollView.centerYAnchor).isActive = true
+        
+        personalCategoryController = PersonalCategoryController()
+        containerScrollView.addSubview(personalCategoryController.view)
+        personalCategoryController.view.anchor(top: containerScrollView.topAnchor, left: allCategoryController.view.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.bounds.width, height: 0)
+        personalCategoryController.view.centerYAnchor.constraint(equalTo: containerScrollView.centerYAnchor).isActive = true
     }
+    
+    func getCategories(){
+        // TODO
+    }
+    
 }
 
 extension MenuController: UICollectionViewDataSource{
@@ -69,13 +89,25 @@ extension MenuController: UICollectionViewDataSource{
 
 extension MenuController: UICollectionViewDelegate{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard let indexPath = categoriesCollectionView.getMidVisibleIndexPath() else {return}
-        print(indexPath.item)
+        if scrollView == categoriesCollectionView{
+            guard let indexPath = categoriesCollectionView.getMidVisibleIndexPath() else {return}
+            print(indexPath.item)
+        }
+        
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let ratio = scrollView.contentOffset.x / scrollView.contentSize.width
+        guard !ratio.isNaN, !ratio.isInfinite else {return}
+        segmentedControl.animateSelectedLine(to: ratio * CGFloat(segmentedControl.segmentTitles.count))
+    }
+
 }
 
 extension MenuController: CustomSegmentedControlDelegate{
     func segmentSelected(segmentedController: CustomSegmentedControl, selectedIndex: Int) {
-        print(selectedIndex)
+        let horizontalOffset = CGFloat(selectedIndex) * view.bounds.width
+        containerScrollView.setContentOffset(CGPoint(x: horizontalOffset, y:0) , animated: true)
     }
+   
 }

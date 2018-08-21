@@ -13,10 +13,6 @@ protocol CustomSegmentedControlDelegate{
 }
 
 class CustomSegmentedControl: UIView {
-
-    private var selectedLineHeightAnchor: NSLayoutConstraint!
-    private var selectedLineRightAnchor: NSLayoutConstraint!
-    private var selectedLineLeftAnchor: NSLayoutConstraint!
     
     var delegate: CustomSegmentedControlDelegate?
     var buttonArray = [UIButton]()
@@ -62,8 +58,8 @@ class CustomSegmentedControl: UIView {
     private func updateView(){
         buttonArray.removeAll()
         subviews.forEach {$0.removeFromSuperview()}
-        for title in segmentTitles {
-            let button = UIButton(type: .system)
+        segmentTitles.forEach { (title) in
+            let button = UIButton()
             button.setTitle(title, for: .normal)
             button.setTitleColor(.black, for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
@@ -73,39 +69,31 @@ class CustomSegmentedControl: UIView {
     }
     
     @objc func buttonTapped(_ button: UIButton){
-        for (index,btn) in buttonArray.enumerated(){
-            btn.setTitleColor(.black, for: .normal)
-            if btn == button{
-                let selectedLineStartPosition = frame.width/CGFloat(buttonArray.count) * CGFloat(index)
-                delegate?.segmentSelected(segmentedController: self, selectedIndex: index)
-                UIView.animate(withDuration: 0.3) {
-                    self.selectedLine.frame.origin = CGPoint(x: selectedLineStartPosition, y: self.selectedLine.frame.origin.y)
-                }
-                btn.setTitleColor(.gourmetPurple, for: .normal)
-            }
-        }
+        delegate?.segmentSelected(segmentedController: self, selectedIndex: buttonArray.index{$0 == button}!)
     }
-    
+ 
+    func animateSelectedLine(to index: CGFloat){
+        let buttonCount = CGFloat(buttonArray.count)
+        let clampedRatio = min(max(index/buttonCount, 0), (buttonCount-1)/buttonCount)
+        let selectedLineStartPosition = frame.width * clampedRatio
+        selectedLine.frame.origin = CGPoint(x: selectedLineStartPosition, y: selectedLine.frame.origin.y)
+        buttonArray.forEach { $0.setTitleColor(.black, for: .normal)}
+        buttonArray[Int(round(index))].setTitleColor(.gourmetPurple, for: .normal)
+    }
+   
     private func setUI(){
         addSubview(underLine)
         underLine.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 1.5)
-
         addSubview(selectedLine)
         selectedLine.anchorProportion(view: self, widthRatio: 1/Double(segmentTitles.count), heightRatio: nil)
-        selectedLine.anchor(top: nil, left: nil, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 2.5)
-        selectedLineLeftAnchor = selectedLine.leftAnchor.constraint(equalTo: leftAnchor, constant: 0)
-        selectedLineRightAnchor = selectedLine.rightAnchor.constraint(equalTo: rightAnchor, constant: 0)
-        selectedLineRightAnchor.priority = .defaultLow
-        selectedLineLeftAnchor.priority = .defaultHigh
-        selectedLineRightAnchor.isActive = true
-        selectedLineLeftAnchor.isActive = true
+        selectedLine.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 2.5)
         
-        buttonArray[0].setTitleColor(selectedColor, for: .normal)
         let buttonStack = UIStackView(arrangedSubviews: buttonArray)
         buttonStack.alignment = .fill
         buttonStack.distribution = .fillEqually
         buttonStack.axis = .horizontal
         addSubview(buttonStack)
         buttonStack.anchorFill(view: self)
+        animateSelectedLine(to: 0)
     }
 }
