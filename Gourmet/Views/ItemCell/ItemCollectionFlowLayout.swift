@@ -16,12 +16,12 @@ class ItemCollectionFlowLayout: UICollectionViewFlowLayout {
         super.prepare()
         if let collectionWidth = collectionView?.bounds.width, let collectionHeight = collectionView?.bounds.height {
             scrollDirection = .horizontal
-            minimumLineSpacing = 10
+            minimumLineSpacing = 3
             let safeAreaSpace: CGFloat = 10
-            let cellWidth = collectionWidth * 165 / 414
+            let cellWidth = collectionWidth * 170 / 414
             let cellHeight =  collectionHeight - safeAreaSpace
             self.itemSize = CGSize(width: cellWidth, height: cellHeight)
-            self.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            self.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         }
         
     }

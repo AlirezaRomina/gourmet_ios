@@ -49,11 +49,11 @@ class MenuController: UIViewController {
         
         view.addSubview(categoriesCollectionView)
         let ratio = min(designHeightRatio, 1)
-        categoriesCollectionView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 15 * ratio, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 170 * ratio)
+        categoriesCollectionView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 10 * ratio, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 170 * ratio)
         
         segmentedControl.delegate = self
         view.addSubview(segmentedControl)
-        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 5 * ratio, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * ratio)
+        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * ratio)
         
         
         view.addSubview(containerScrollView)
@@ -89,14 +89,13 @@ extension MenuController: UICollectionViewDataSource{
 
 extension MenuController: UICollectionViewDelegate{
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if scrollView == categoriesCollectionView{
-            guard let indexPath = categoriesCollectionView.getMidVisibleIndexPath() else {return}
-            print(indexPath.item)
-        }
-        
+        guard let indexPath = categoriesCollectionView.getMidVisibleIndexPath(),
+            scrollView == categoriesCollectionView else {return}
+        print(indexPath.item)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView == containerScrollView else {return}
         let ratio = scrollView.contentOffset.x / scrollView.contentSize.width
         guard !ratio.isNaN, !ratio.isInfinite else {return}
         segmentedControl.animateSelectedLine(to: ratio * CGFloat(segmentedControl.segmentTitles.count))

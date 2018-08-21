@@ -22,13 +22,16 @@ class CustomSegmentedControl: UIView {
         }
     }
     
-    convenience init(segmentTitles: [String], underLineColor: UIColor = .lightGray, selectedColor: UIColor = .gourmetPurple) {
-        self.init()
-        self.segmentTitles = segmentTitles
-        self.selectedColor = selectedColor
-        self.underLineColor = underLineColor
-        updateView()
-        setUI()
+    var selectedColor: UIColor = .gourmetPurple{
+        didSet{
+            selectedLine.backgroundColor = underLineColor
+        }
+    }
+    
+    var underLineColor: UIColor = .lightGray {
+        didSet{
+            underLine.backgroundColor = underLineColor
+        }
     }
     
     let underLine: UIView = {
@@ -43,16 +46,13 @@ class CustomSegmentedControl: UIView {
         return view
     }()
     
-    var selectedColor: UIColor = .gourmetPurple{
-        didSet{
-            selectedLine.backgroundColor = underLineColor
-        }
-    }
-    
-    var underLineColor: UIColor = .lightGray {
-        didSet{
-            underLine.backgroundColor = underLineColor
-        }
+    convenience init(segmentTitles: [String], underLineColor: UIColor = .lightGray, selectedColor: UIColor = .gourmetPurple) {
+        self.init()
+        self.segmentTitles = segmentTitles
+        self.selectedColor = selectedColor
+        self.underLineColor = underLineColor
+        updateView()
+        setUI()
     }
     
     private func updateView(){

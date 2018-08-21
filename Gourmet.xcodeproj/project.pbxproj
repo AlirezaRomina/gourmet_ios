@@ -22,6 +22,7 @@
 		408123A7212A27ED0091D1D9 /* CategoryCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408123A6212A27ED0091D1D9 /* CategoryCollectionFlowLayout.swift */; };
 		408123AB212A33CA0091D1D9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408123AA212A33CA0091D1D9 /* UIImage.swift */; };
 		408123AF212A39200091D1D9 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408123AE212A39200091D1D9 /* UIImageView.swift */; };
+		40848CDB212CA5EC009DE929 /* Cosmos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40848CDA212CA5EC009DE929 /* Cosmos.swift */; };
 		40CFB9EE212A222D00446F06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40CFB9ED212A222D00446F06 /* GoogleService-Info.plist */; };
 		40EF3D09212A106600DE29EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF3D08212A106600DE29EF /* AppDelegate.swift */; };
 		40EF3D0E212A106600DE29EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40EF3D0C212A106600DE29EF /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		408123A6212A27ED0091D1D9 /* CategoryCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		408123AA212A33CA0091D1D9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		408123AE212A39200091D1D9 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		40848CDA212CA5EC009DE929 /* Cosmos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cosmos.swift; sourceTree = "<group>"; };
 		40CFB9ED212A222D00446F06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40EF3D05212A106600DE29EF /* Gourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40EF3D08212A106600DE29EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				40EF3D42212A19BE00DE29EF /* Extensions */,
 				408123A4212A25330091D1D9 /* CustomImageView.swift */,
 				4010022E212ACA6F00319E43 /* Costants.swift */,
+				40848CDA212CA5EC009DE929 /* Cosmos.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				40100242212B74CB00319E43 /* Item.swift in Sources */,
 				408123A3212A24420091D1D9 /* CategoryCollectionViewCell.swift in Sources */,
 				4010023E212B742900319E43 /* ItemCollectionFlowLayout.swift in Sources */,
+				40848CDB212CA5EC009DE929 /* Cosmos.swift in Sources */,
 				40100239212AE8E300319E43 /* AllCategoryController.swift in Sources */,
 				408123A7212A27ED0091D1D9 /* CategoryCollectionFlowLayout.swift in Sources */,
 				40100235212AE2B200319E43 /* UICollectionView.swift in Sources */,
