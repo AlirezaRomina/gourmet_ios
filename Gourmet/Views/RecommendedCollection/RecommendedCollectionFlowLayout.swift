@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemCollectionFlowLayout: UICollectionViewFlowLayout {
+class RecommendedCollectionFlowLayout: UICollectionViewFlowLayout {
     var zoomScale: CGFloat = 0.2
     var alphaFactor: CGFloat = 0.1
     

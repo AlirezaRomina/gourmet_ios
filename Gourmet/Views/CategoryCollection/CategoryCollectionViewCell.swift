@@ -61,7 +61,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(labelStack)
         labelStack.anchor(top: nil, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 15, paddingBottom: 12 * min(designHeightRatio,1), paddingRight: 0, width: 0, height: 0)
         labelStack.anchorProportion(view: contentView, widthRatio: 0.8, heightRatio: nil)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemCollectionViewCell: UICollectionViewCell {
+class RecommendedCollectionViewCell: UICollectionViewCell {
     
     let backgroundImageView: CustomImageView = {
         let iv = CustomImageView()
@@ -18,7 +18,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     let headerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.textColor = .white
         label.text = "Texas Steak House with onion"
         label.numberOfLines = 2
@@ -67,7 +67,6 @@ class ItemCollectionViewCell: UICollectionViewCell {
         headerLabel.widthAnchor.constraint(lessThanOrEqualToConstant: contentView.frame.width - 15).isActive = true
         
         contentView.addSubview(priceLabel)
-        
         priceLabel.anchor(top: nil, left: nil, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 6, paddingRight: 10, width: 0, height: 0)
     }
     

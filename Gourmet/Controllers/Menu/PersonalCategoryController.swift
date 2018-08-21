@@ -19,14 +19,6 @@ class PersonalCategoryController: UIViewController {
         return label
     }()
     
-    let recomendedDescription: UILabel = {
-        let label = UILabel()
-        label.text = "Special Edition"
-        label.font = UIFont.systemFont(ofSize: 13, weight: .light)
-        label.textColor = .black
-        return label
-    }()
-    
     let featuredHeader: UILabel = {
         let label = UILabel()
         label.text = "Featured Items"
@@ -36,9 +28,9 @@ class PersonalCategoryController: UIViewController {
     }()
     
     lazy var recomendedCollectionView: UICollectionView = {
-        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: ItemCollectionFlowLayout())
+        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: RecommendedCollectionFlowLayout())
         cv.backgroundColor = .white
-        cv.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        cv.register(RecommendedCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         cv.delegate = self
         cv.dataSource = self
         cv.showsHorizontalScrollIndicator = false
@@ -47,9 +39,15 @@ class PersonalCategoryController: UIViewController {
     }()
     
     lazy var featuredCollectionView: UICollectionView = {
-        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
+        let flowLayout = UICollectionViewFlowLayout()
+        let horizontalPadding: CGFloat = 15
+        let ratio = min(designHeightRatio, 1)
+        flowLayout.itemSize = CGSize(width: (view.bounds.width - 2 * horizontalPadding)/2, height: 65 * ratio)
+        flowLayout.minimumLineSpacing = 10 * designHeightRatio
+        
+        let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         cv.backgroundColor = .white
-        cv.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        cv.register(FeaturedCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         cv.delegate = self
         cv.dataSource = self
         cv.showsHorizontalScrollIndicator = false
@@ -61,26 +59,31 @@ class PersonalCategoryController: UIViewController {
         super.viewDidLoad()
         let ratio = min(designHeightRatio, 1)
         view.addSubview(recomendedHeader)
-        recomendedHeader.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 10 * ratio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        view.addSubview(recomendedDescription)
-        recomendedDescription.anchor(top: view.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 10 * ratio, paddingLeft: 0, paddingBottom: 0, paddingRight: 15, width: 0, height: 0)
+        recomendedHeader.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 8 * ratio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         view.addSubview(recomendedCollectionView)
         recomendedCollectionView.anchor(top: recomendedHeader.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 170 * ratio)
         view.addSubview(featuredHeader)
-        featuredHeader.anchor(top: recomendedCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 5 * ratio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        featuredHeader.anchor(top: recomendedCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 4 * ratio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        view.addSubview(featuredCollectionView)
+        featuredCollectionView.anchor(top: featuredHeader.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 4 * ratio, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 0)
     }
 }
 
 
 extension PersonalCategoryController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return collectionView == recomendedCollectionView ? 8 :  4
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ItemCollectionViewCell
-        cell.backgroundColor = .blue
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? RecommendedCollectionViewCell{
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FeaturedCollectionViewCell
+            return cell
+        }
+        
     }
     
     
