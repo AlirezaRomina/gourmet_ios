@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeaturedCollectionViewCell: UICollectionViewCell {
+class FeaturedTableViewCell: UICollectionViewCell {
     
     let itemImageView: CustomImageView = {
         let iv = CustomImageView()
@@ -53,18 +53,41 @@ class FeaturedCollectionViewCell: UICollectionViewCell {
         return cv
     }()
     
+    let rightArrowImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "arrow_right")
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
+    let seperatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(itemImageView)
-        itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        let ratio = min(designHeightRatio,1)
+        
+        itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 6 * ratio, paddingLeft: 5, paddingBottom: 6 * ratio, paddingRight: 0, width: 0, height: 0)
         itemImageView.widthAnchor.constraint(equalTo: itemImageView.heightAnchor).isActive = true
+        contentView.addSubview(rightArrowImage)
+        rightArrowImage.anchorMiddle(horizontal: nil, vertical: contentView)
+        rightArrowImage.anchor(top: nil, left: nil, bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 25 * ratio, width: 9*ratio, height: 16*ratio)
+        
+        contentView.addSubview(seperatorView)
+        seperatorView.anchor(top: nil, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 0, height: 0.5)
         
         let stackView = UIStackView(arrangedSubviews: [headerLabel,ratingStarView,priceLabel])
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .leading
         contentView.addSubview(stackView)
-        stackView.anchor(top: contentView.topAnchor, left: itemImageView.rightAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 4, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        stackView.anchorMiddle(horizontal: nil, vertical: contentView)
+        stackView.anchor(top: nil, left: itemImageView.rightAnchor, bottom: nil, right: rightArrowImage.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
     }
     
