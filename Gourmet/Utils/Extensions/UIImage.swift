@@ -8,13 +8,17 @@
 
 import UIKit
 
-struct GradientPoint {
+class GradientPoint<C>: NSObject {
     var location: CGFloat
-    var color: UIColor
+    var color: C
+    
+    init(location: CGFloat, color: C) {
+        self.location = location
+        self.color = color
+    }
 }
 
-extension UIImage{
-    
+extension UIImage {
     static func from(color: UIColor) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
@@ -26,17 +30,44 @@ extension UIImage{
         return img!
     }
     
-    convenience init?(size: CGSize, gradientPoints: [GradientPoint]) {
-        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }       // If the size is zero, the context will be nil.
-        guard let gradient = CGGradient(colorSpace: CGColorSpaceCreateDeviceRGB(), colorComponents: gradientPoints.compactMap { $0.color.cgColor.components }.flatMap { $0 }, locations: gradientPoints.map { $0.location }, count: gradientPoints.count) else {
-            return nil
+    static func image(withGradientPoints gradientPoints: [GradientPoint<[CGFloat]>], colorSpace: CGColorSpace, size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0);
+        guard
+            let context = UIGraphicsGetCurrentContext(),
+            let gradient = CGGradient(colorSpace: colorSpace,
+                                      colorComponents: gradientPoints.flatMap { $0.color },
+                                      locations: gradientPoints.map { $0.location }, count: gradientPoints.count) else {
+                                        return nil
         }
+        
         context.drawLinearGradient(gradient, start: CGPoint.zero, end: CGPoint(x: 0, y: size.height), options: CGGradientDrawingOptions())
-        guard let image = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else { return nil }
-        self.init(cgImage: image)
-        defer { UIGraphicsEndImageContext() }
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    static func image(withRGBAGradientPoints gradientPoints: [GradientPoint<RGBA>], size: CGSize) -> UIImage? {
+        return image(withGradientPoints: gradientPoints.map {
+            GradientPoint(location: $0.location, color: [$0.color.red, $0.color.green, $0.color.blue, $0.color.alpha])
+        }, colorSpace: CGColorSpaceCreateDeviceRGB(), size: size)
+    }
+    
+    static func image(withRGBAGradientColors gradientColors: [CGFloat: RGBA], size: CGSize) -> UIImage? {
+        return image(withRGBAGradientPoints: gradientColors.map {  GradientPoint(location: $0, color: $1)}, size: size)
+    }
+    
+    static func image(withGrayscaleGradientPoints gradientPoints: [GradientPoint<Grayscale>], size: CGSize) -> UIImage? {
+        return image(withGradientPoints: gradientPoints.map {
+            GradientPoint(location: $0.location, color: [$0.color.white, $0.color.alpha]) },
+                     colorSpace: CGColorSpaceCreateDeviceGray(), size: size)
+    }
+    
+    static func image(withGrayscaleGradientColors gradientColors: [CGFloat: Grayscale], size: CGSize) -> UIImage? {
+        return image(withGrayscaleGradientPoints: gradientColors.map { GradientPoint(location: $0, color: $1) }, size: size)
     }
 }
+
+
+
 
 

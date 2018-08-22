@@ -12,10 +12,9 @@ class MenuController: UIViewController, UIGestureRecognizerDelegate {
     let cellId = "categoriesCell"
     var restaurantId: Int64!
     var categories = [Category]()
-    var allCategoryController: AllCategoryController!
-    var personalCategoryController: PersonalCategoryController!
+    let allCategoryController = AllCategoryController()
+    let personalCategoryController = PersonalCategoryController()
    
-    
     lazy var categoriesCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: CategoryCollectionFlowLayout())
         cv.backgroundColor = .white
@@ -28,7 +27,7 @@ class MenuController: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     let segmentedControl: CustomSegmentedControl = {
-        let sc = CustomSegmentedControl(segmentTitles: ["All", "For You"])
+        let sc = CustomSegmentedControl(segmentTitles: ["All", "Personal"])
         return sc
     }()
     
@@ -38,6 +37,7 @@ class MenuController: UIViewController, UIGestureRecognizerDelegate {
         sv.contentSize.width = view.bounds.width * 2
         sv.showsVerticalScrollIndicator = false
         sv.showsHorizontalScrollIndicator = false
+        sv.bounces = false
         sv.isPagingEnabled = true
         sv.delegate = self
         return sv
@@ -49,6 +49,8 @@ class MenuController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        allCategoryController.delegate = self
+        personalCategoryController.delegate = self
         view.backgroundColor = .white
         navigationItem.title = "Eddy's Restaurant"
         let guide = view.safeAreaLayoutGuide
@@ -58,29 +60,19 @@ class MenuController: UIViewController, UIGestureRecognizerDelegate {
         
         segmentedControl.delegate = self
         view.addSubview(segmentedControl)
-        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * designHeightRatio)
+        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 4 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * designHeightRatio)
         
         view.addSubview(containerScrollView)
         containerScrollView.anchor(top: segmentedControl.bottomAnchor, left: view.leftAnchor, bottom: guide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
-        allCategoryController = AllCategoryController()
-        allCategoryController.delegate = self
-        containerScrollView.addSubview(allCategoryController.view)
-        allCategoryController.view.anchor(top: containerScrollView.topAnchor, left: containerScrollView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width:  view.bounds.width, height: 0)
-        allCategoryController.view.centerYAnchor.constraint(equalTo: containerScrollView.centerYAnchor).isActive = true
-        
-        personalCategoryController = PersonalCategoryController()
-        personalCategoryController.delegate = self
-        containerScrollView.addSubview(personalCategoryController.view)
-        personalCategoryController.view.anchor(top: containerScrollView.topAnchor, left: allCategoryController.view.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.bounds.width, height: 0)
-        personalCategoryController.view.centerYAnchor.constraint(equalTo: containerScrollView.centerYAnchor).isActive = true
+        containerScrollView.addViews(views: [allCategoryController.view,personalCategoryController.view], width: view.bounds.width)
+        addChild(viewControllers: [allCategoryController,personalCategoryController])
     }
    
     
     func getCategories(){
         // TODO
     }
-    
 }
 
 extension MenuController: UICollectionViewDataSource{
@@ -117,15 +109,11 @@ extension MenuController: CustomSegmentedControlDelegate{
     }
    
 }
-
-extension MenuController: AllCategoryDelegate{
+extension MenuController: AllCategoryDelegate, PersonalCategoryDelegate{
     func itemSelected(_ allCategoryController: AllCategoryController) {
         let vc = ItemDetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-}
-
-extension MenuController: PersonalCategoryDelegate{
     func itemSelected(_ personalCategoryController: PersonalCategoryController) {
         let vc = ItemDetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)

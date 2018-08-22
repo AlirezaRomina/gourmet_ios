@@ -56,8 +56,8 @@ class RecommendedCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(backgroundImageView)
         backgroundImageView.anchorFill(view: self.contentView)
-        let points = [GradientPoint(location: 1, color: #colorLiteral(red: 0.8941176471, green: 0.2274509804, blue: 0.3294117647, alpha: 1)), GradientPoint(location: 0.4, color: .clear),  GradientPoint(location: 0, color: .clear)]
-        backgroundImageView.addMask(image: UIImage(size: frame.size, gradientPoints: points))
+        let gradientImage = UIImage.image(withRGBAGradientColors: [1: RGBA(color: .gourmetPurple), 0.5: RGBA(color: .clear)], size: contentView.bounds.size)
+        backgroundImageView.addMask(image: gradientImage)
         
         contentView.addSubview(ratingStarView)
         ratingStarView.anchor(top: nil, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 8, paddingRight: 0, width: 0, height: 0)

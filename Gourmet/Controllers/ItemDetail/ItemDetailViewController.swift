@@ -10,44 +10,14 @@ import UIKit
 
 class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    let recommendedCellId = "recommendedCellId"
+    let infoViewController = InfoViewController()
+    let similarTableViewController = SimilarTableViewController()
+    let rateViewController = RateViewController()
+
     let itemImageView: CustomImageView = {
         let iv = CustomImageView()
         iv.image = UIImage(named: "hamburger")
         return iv
-    }()
-    
-    let headerLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.textColor = .white
-        label.text = "Texas Steak House with onion"
-        label.numberOfLines = 2
-        return label
-    }()
-    
-    let priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.textColor = .white
-        label.text = "$20"
-        return label
-    }()
-    
-    let ratingStarView: CosmosView = {
-        let cv = CosmosView()
-        cv.settings.filledImage = #imageLiteral(resourceName: "star_filled")
-        cv.settings.emptyImage = #imageLiteral(resourceName: "star_unfilled")
-        cv.settings.updateOnTouch = false
-        cv.settings.fillMode = .precise
-        cv.settings.starSize = 10
-        cv.settings.starMargin = 2
-        cv.rating = 3.5
-        cv.text = "(52)"
-        cv.totalStars = 5
-        cv.textColor = .white
-        cv.settings.textFont = UIFont.boldSystemFont(ofSize: 10)
-        return cv
     }()
     
     let arviewButton: UIButton = {
@@ -74,20 +44,22 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         return button
     }()
     
-    lazy var featuredTableView: UITableView = {
-        let tv = UITableView(frame: CGRect.zero)
-        tv.backgroundColor = .white
-        tv.register(FeaturedTableViewCell.self, forCellReuseIdentifier: recommendedCellId)
-        tv.delegate = self
-        tv.dataSource = self
-        tv.showsHorizontalScrollIndicator = false
-        tv.showsVerticalScrollIndicator = false
-        return tv
+    lazy var segmentedControl: CustomSegmentedControl = {
+        let sc = CustomSegmentedControl(segmentTitles: ["Info", "Similar Items", "Rate"])
+        sc.delegate = self
+        return sc
     }()
     
-    let segmentedControl: CustomSegmentedControl = {
-        let sc = CustomSegmentedControl(segmentTitles: ["Info", "Similar Items", "Rate"])
-        return sc
+    lazy var containerScrollView: UIScrollView = {
+        let sv =  UIScrollView(frame: CGRect.zero)
+        sv.backgroundColor = .clear
+        sv.contentSize.width = view.bounds.width * 3
+        sv.showsVerticalScrollIndicator = false
+        sv.showsHorizontalScrollIndicator = false
+        sv.bounces = false
+        sv.isPagingEnabled = true
+        sv.delegate = self
+        return sv
     }()
     
     @objc func pop(){
@@ -109,50 +81,48 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let safeArea = view.safeAreaLayoutGuide
+        let guide = view.safeAreaLayoutGuide
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         view.backgroundColor = .white
         view.addSubview(itemImageView)
         itemImageView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        itemImageView.heightAnchor.constraint(equalTo: itemImageView.widthAnchor, multiplier: 1 * designHeightRatio).isActive = true
+        itemImageView.heightAnchor.constraint(equalTo: itemImageView.widthAnchor, multiplier: (0.9 - 60/view.bounds.width) * designHeightRatio).isActive = true
         view.layoutSubviews()
-        let points = [GradientPoint(location: 1, color: #colorLiteral(red: 0.8941176471, green: 0.2274509804, blue: 0.3294117647, alpha: 1)), GradientPoint(location: 0.4, color: .clear),  GradientPoint(location: 0, color: .clear)]
-        itemImageView.addMask(image: UIImage(size: itemImageView.frame.size, gradientPoints: points))
-        
-        
+        let gradientImage = UIImage.image(withRGBAGradientColors: [1: RGBA(color: .gourmetPurple), 0.5: RGBA(color: .clear)], size: itemImageView.bounds.size)
+        itemImageView.addMask(image: gradientImage)
+    
         view.addSubview(arviewButton)
         arviewButton.anchor(top: itemImageView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: -8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 60 * designHeightRatio)
         view.sendSubviewToBack(arviewButton)
         
         view.addSubview(backButton)
-        backButton.anchor(top: safeArea.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 28, height: 28)
+        backButton.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 28, height: 28)
         
         view.addSubview(segmentedControl)
           segmentedControl.anchor(top: arviewButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 12 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * designHeightRatio)
 
-        view.addSubview(featuredTableView)
-        featuredTableView.anchor(top: segmentedControl.bottomAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 15 * designWidthRatio, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        view.addSubview(containerScrollView)
+        containerScrollView.anchor(top: segmentedControl.bottomAnchor, left: view.leftAnchor, bottom: guide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        
+        addChild(viewControllers: [infoViewController,similarTableViewController,rateViewController])
+        containerScrollView.addViews(views: [infoViewController.view, similarTableViewController.view, rateViewController.view], width: view.bounds.width)
     }
-    
+   
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-    
 }
 
-extension ItemDetailViewController: UITableViewDataSource, UITableViewDelegate{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+extension ItemDetailViewController: CustomSegmentedControlDelegate, UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView == containerScrollView else {return}
+        let ratio = scrollView.contentOffset.x / scrollView.contentSize.width
+        guard !ratio.isNaN, !ratio.isInfinite else {return}
+        segmentedControl.animateSelectedLine(to: ratio * CGFloat(segmentedControl.segmentTitles.count))
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: recommendedCellId, for: indexPath) as! FeaturedTableViewCell
-        return cell
+    func segmentSelected(segmentedController: CustomSegmentedControl, selectedIndex: Int) {
+        let horizontalOffset = CGFloat(selectedIndex) * view.bounds.width
+        containerScrollView.setContentOffset(CGPoint(x: horizontalOffset, y:0) , animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70 * designHeightRatio
-    }
-    
-    
 }

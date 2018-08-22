@@ -61,24 +61,15 @@ class FeaturedTableViewCell: UITableViewCell {
         return iv
     }()
     
-    let seperatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        return view
-    }()
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(itemImageView)        
-        itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 6 * designHeightRatio, paddingLeft: 5, paddingBottom: 6 * designHeightRatio, paddingRight: 0, width: 0, height: 0)
+        itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 6 * designHeightRatio, paddingLeft: 15, paddingBottom: 6 * designHeightRatio, paddingRight: 0, width: 0, height: 0)
         itemImageView.widthAnchor.constraint(equalTo: itemImageView.heightAnchor).isActive = true
         contentView.addSubview(rightArrowImage)
         rightArrowImage.anchorMiddle(horizontal: nil, vertical: contentView)
         rightArrowImage.anchor(top: nil, left: nil, bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 25 * designHeightRatio, width: 9*designHeightRatio, height: 16*designHeightRatio)
-        
-        contentView.addSubview(seperatorView)
-        seperatorView.anchor(top: nil, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 0, height: 0.5)
-        
+                
         let stackView = UIStackView(arrangedSubviews: [headerLabel,ratingStarView,priceLabel])
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
@@ -86,7 +77,6 @@ class FeaturedTableViewCell: UITableViewCell {
         contentView.addSubview(stackView)
         stackView.anchorMiddle(horizontal: nil, vertical: contentView)
         stackView.anchor(top: nil, left: itemImageView.rightAnchor, bottom: nil, right: rightArrowImage.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

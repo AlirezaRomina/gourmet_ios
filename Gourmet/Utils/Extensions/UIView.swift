@@ -10,33 +10,8 @@ import UIKit
 
 
 extension UIView {
-
-    @IBInspectable
-    var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.cornerRadius = newValue
-            layer.masksToBounds = newValue > 0
-        }
-    }
-    
-    @IBInspectable
-    var shadowRadius: CGFloat {
-        get {
-            return layer.shadowRadius
-        }
-        set {
-            layer.shadowColor = UIColor.black.cgColor
-            layer.shadowOffset = CGSize(width: 2, height: 4)
-            layer.shadowOpacity = 0.4
-            layer.shadowRadius = shadowRadius
-        }
-    }
     
     func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat, height: CGFloat){
-        
         translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top{
@@ -100,5 +75,5 @@ extension UIView {
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         self.layer.mask = mask
-    }
+    }    
 }
