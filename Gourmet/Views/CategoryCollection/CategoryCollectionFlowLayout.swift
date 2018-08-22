@@ -18,7 +18,7 @@ class CategoryCollectionFlowLayout: UICollectionViewFlowLayout {
         if let collectionWidth = collectionView?.bounds.width, let collectionHeight = collectionView?.bounds.height {
             scrollDirection = .horizontal
             minimumLineSpacing = -5
-            let safeAreaSpace: CGFloat = 10
+            let safeAreaSpace: CGFloat = 5
             let cellWidth = collectionWidth * 340 / 414
             let cellHeight =  collectionHeight - safeAreaSpace
             self.itemSize = CGSize(width: cellWidth, height: cellHeight)

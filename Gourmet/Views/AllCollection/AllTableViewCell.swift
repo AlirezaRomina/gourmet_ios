@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllTableViewCell: UICollectionViewCell {
+class AllTableViewCell: UITableViewCell {
     let itemImageView: CustomImageView = {
         let iv = CustomImageView()
         iv.image = UIImage(named: "hamburger")
@@ -28,16 +28,6 @@ class AllTableViewCell: UICollectionViewCell {
         return label
     }()
     
-    let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10, weight: .bold)
-        label.textColor = .gray
-        label.text = "Texas Steak House Texas Steak House Texas Steak House Texas Steak House Texas Steak House Texas Steak House Texas Steak House Texas Steak House"
-        label.numberOfLines = 3
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.8
-        return label
-    }()
     
     let priceLabel: UILabel = {
         let label = UILabel()
@@ -63,34 +53,32 @@ class AllTableViewCell: UICollectionViewCell {
         return cv
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    let rightArrowImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "arrow_right")
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(itemImageView)
-        let ratio = min(designHeightRatio,1)
-        itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 12.5 * ratio, paddingLeft: 5, paddingBottom: 12.5 * ratio, paddingRight: 0, width: 0, height: 0)
+        itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 8 * designHeightRatio, paddingLeft: 15, paddingBottom: 8 * designHeightRatio, paddingRight: 0, width: 0, height: 0)
         itemImageView.widthAnchor.constraint(equalTo: itemImageView.heightAnchor).isActive = true
         
-        let leftStack = UIStackView(arrangedSubviews: [headerLabel, descriptionLabel])
-        leftStack.axis = .vertical
-        leftStack.distribution = .fillProportionally
-        leftStack.alignment = .leading
-        leftStack.spacing = 8 * ratio
+        contentView.addSubview(rightArrowImage)
+        rightArrowImage.anchorMiddle(horizontal: nil, vertical: contentView)
+        rightArrowImage.anchor(top: nil, left: nil, bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 25 * designHeightRatio, width: 9*designHeightRatio, height: 16*designHeightRatio)
         
-        let rightStack = UIStackView(arrangedSubviews: [priceLabel, ratingStarView])
-        rightStack.axis = .vertical
-        rightStack.distribution = .fillProportionally
-        rightStack.alignment = .trailing
-        
-        let featuresStack = UIStackView(arrangedSubviews: [leftStack, rightStack])
-        rightStack.axis = .horizontal
-        rightStack.distribution = .fillProportionally
-        rightStack.alignment = .fill
-        contentView.addSubview(featuresStack)
-        featuresStack.anchorMiddle(horizontal: nil, vertical: contentView)
-        featuresStack.anchor(top: nil, left: itemImageView.rightAnchor, bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 8*ratio, paddingBottom: 0, paddingRight: 10, width: 0, height: 0)
-
-        
-       
+        let stackView = UIStackView(arrangedSubviews: [headerLabel, ratingStarView, priceLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .leading
+        stackView.spacing = 3 * designHeightRatio
+        contentView.addSubview(stackView)
+        stackView.anchorMiddle(horizontal: nil, vertical: contentView)
+        stackView.anchor(top: nil, left: itemImageView.rightAnchor, bottom: nil, right: rightArrowImage.leftAnchor, paddingTop: 0, paddingLeft: 10 * designHeightRatio, paddingBottom: 0, paddingRight: 25 * designHeightRatio, width: 0, height: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

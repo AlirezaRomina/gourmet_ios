@@ -8,12 +8,13 @@
 
 import UIKit
 
-class MenuController: UIViewController {
+class MenuController: UIViewController, UIGestureRecognizerDelegate {
     let cellId = "categoriesCell"
     var restaurantId: Int64!
     var categories = [Category]()
     var allCategoryController: AllCategoryController!
     var personalCategoryController: PersonalCategoryController!
+   
     
     lazy var categoriesCollectionView: UICollectionView = {
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: CategoryCollectionFlowLayout())
@@ -42,33 +43,39 @@ class MenuController: UIViewController {
         return sv
     }()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .default
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.title = "Eddy's Restaurant"
         let guide = view.safeAreaLayoutGuide
         
         view.addSubview(categoriesCollectionView)
-        let ratio = min(designHeightRatio, 1)
-        categoriesCollectionView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 10 * ratio, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 170 * ratio)
+        categoriesCollectionView.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 10 * designHeightRatio, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 170 * designHeightRatio)
         
         segmentedControl.delegate = self
         view.addSubview(segmentedControl)
-        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * ratio)
-        
+        segmentedControl.anchor(top: categoriesCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * designHeightRatio)
         
         view.addSubview(containerScrollView)
         containerScrollView.anchor(top: segmentedControl.bottomAnchor, left: view.leftAnchor, bottom: guide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         allCategoryController = AllCategoryController()
+        allCategoryController.delegate = self
         containerScrollView.addSubview(allCategoryController.view)
         allCategoryController.view.anchor(top: containerScrollView.topAnchor, left: containerScrollView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width:  view.bounds.width, height: 0)
         allCategoryController.view.centerYAnchor.constraint(equalTo: containerScrollView.centerYAnchor).isActive = true
         
         personalCategoryController = PersonalCategoryController()
+        personalCategoryController.delegate = self
         containerScrollView.addSubview(personalCategoryController.view)
         personalCategoryController.view.anchor(top: containerScrollView.topAnchor, left: allCategoryController.view.rightAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.bounds.width, height: 0)
         personalCategoryController.view.centerYAnchor.constraint(equalTo: containerScrollView.centerYAnchor).isActive = true
     }
+   
     
     func getCategories(){
         // TODO
@@ -109,4 +116,18 @@ extension MenuController: CustomSegmentedControlDelegate{
         containerScrollView.setContentOffset(CGPoint(x: horizontalOffset, y:0) , animated: true)
     }
    
+}
+
+extension MenuController: AllCategoryDelegate{
+    func itemSelected(_ allCategoryController: AllCategoryController) {
+        let vc = ItemDetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension MenuController: PersonalCategoryDelegate{
+    func itemSelected(_ personalCategoryController: PersonalCategoryController) {
+        let vc = ItemDetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

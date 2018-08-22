@@ -8,6 +8,6 @@
 
 import UIKit
 
-let designWidthRatio = UIScreen.main.bounds.width / 414
-let designHeightRatio = UIScreen.main.bounds.height / 736
+let designWidthRatio = min(UIScreen.main.bounds.width / 414,1)
+let designHeightRatio = min(UIScreen.main.bounds.height / 736,1)
 

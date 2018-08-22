@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeaturedTableViewCell: UICollectionViewCell {
+class FeaturedTableViewCell: UITableViewCell {
     
     let itemImageView: CustomImageView = {
         let iv = CustomImageView()
@@ -67,16 +67,14 @@ class FeaturedTableViewCell: UICollectionViewCell {
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentView.addSubview(itemImageView)
-        let ratio = min(designHeightRatio,1)
-        
-        itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 6 * ratio, paddingLeft: 5, paddingBottom: 6 * ratio, paddingRight: 0, width: 0, height: 0)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(itemImageView)        
+        itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 6 * designHeightRatio, paddingLeft: 5, paddingBottom: 6 * designHeightRatio, paddingRight: 0, width: 0, height: 0)
         itemImageView.widthAnchor.constraint(equalTo: itemImageView.heightAnchor).isActive = true
         contentView.addSubview(rightArrowImage)
         rightArrowImage.anchorMiddle(horizontal: nil, vertical: contentView)
-        rightArrowImage.anchor(top: nil, left: nil, bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 25 * ratio, width: 9*ratio, height: 16*ratio)
+        rightArrowImage.anchor(top: nil, left: nil, bottom: nil, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 25 * designHeightRatio, width: 9*designHeightRatio, height: 16*designHeightRatio)
         
         contentView.addSubview(seperatorView)
         seperatorView.anchor(top: nil, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: contentView.rightAnchor, paddingTop: 0, paddingLeft: 5, paddingBottom: 0, paddingRight: 0, width: 0, height: 0.5)
