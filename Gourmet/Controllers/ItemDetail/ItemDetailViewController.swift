@@ -80,6 +80,7 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardOnTap()
         let guide = view.safeAreaLayoutGuide
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         view.backgroundColor = .white

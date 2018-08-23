@@ -10,6 +10,8 @@ import UIKit
 
 class RateViewController: UIViewController, UITextViewDelegate {
 
+    var commetTextViewDefaultTopAnchor: NSLayoutConstraint!
+    var commetTextViewKeyboardTopAnchor: NSLayoutConstraint!
     let headerLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 26, weight: .medium)
@@ -83,6 +85,8 @@ class RateViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         hideKeyboardOnTap()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil);
         
         view.addSubview(headerLabel)
         headerLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 20 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
@@ -95,7 +99,29 @@ class RateViewController: UIViewController, UITextViewDelegate {
         rateButton.anchor(top: nil, left: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 20*designHeightRatio, paddingRight: 0, width: 150*designHeightRatio, height: 36 * designHeightRatio)
         
         view.addSubview(commetTextView)
-        commetTextView.anchor(top: ratingStarView.bottomAnchor, left: view.leftAnchor, bottom: rateButton.topAnchor, right: view.rightAnchor, paddingTop: 15*designHeightRatio, paddingLeft: 15, paddingBottom: 15*designHeightRatio, paddingRight: 15, width: 0, height: 0)
+        commetTextViewDefaultTopAnchor = commetTextView.topAnchor.constraint(equalTo: ratingStarView.bottomAnchor, constant: 15*designHeightRatio)
+        commetTextViewDefaultTopAnchor.isActive = true
+        commetTextViewKeyboardTopAnchor = commetTextView.topAnchor.constraint(equalTo: view.topAnchor, constant: 5*designHeightRatio)
+        commetTextViewKeyboardTopAnchor.isActive = false
+        commetTextView.anchor(top: nil, left: view.leftAnchor, bottom: rateButton.topAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 15, paddingBottom: 15*designHeightRatio, paddingRight: 15, width: 0, height: 0)
+        view.updateConstraints()
+
+    }
+    
+    @objc func keyboardWillShow(sender: NSNotification) {
+        commetTextViewDefaultTopAnchor.isActive = false
+        commetTextViewKeyboardTopAnchor.isActive = true
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    @objc func keyboardWillHide(sender: NSNotification) {
+        commetTextViewDefaultTopAnchor.isActive = true
+        commetTextViewKeyboardTopAnchor.isActive = false
+
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     
