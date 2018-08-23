@@ -20,7 +20,7 @@ class FeaturedTableViewCell: UITableViewCell {
     
     let headerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.textColor = .black
         label.text = "Texas Steak House"
         label.numberOfLines = 2
@@ -74,6 +74,7 @@ class FeaturedTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .leading
+        stackView.spacing = designHeightRatio < 1 ? 0 : 1
         contentView.addSubview(stackView)
         stackView.anchorMiddle(horizontal: nil, vertical: contentView)
         stackView.anchor(top: nil, left: itemImageView.rightAnchor, bottom: nil, right: rightArrowImage.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)

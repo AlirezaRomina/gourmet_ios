@@ -18,7 +18,7 @@ class RecommendedCollectionFlowLayout: UICollectionViewFlowLayout {
             scrollDirection = .horizontal
             minimumLineSpacing = 3
             let safeAreaSpace: CGFloat = 5
-            let cellWidth = collectionWidth * 170 / 414
+            let cellWidth = collectionWidth * 150 / 414
             let cellHeight =  collectionHeight - safeAreaSpace
             self.itemSize = CGSize(width: cellWidth, height: cellHeight)
             self.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)

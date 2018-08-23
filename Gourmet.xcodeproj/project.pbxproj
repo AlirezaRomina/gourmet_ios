@@ -26,7 +26,6 @@
 		40966A67212CC5F70065B9FB /* AllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40966A66212CC5F70065B9FB /* AllTableViewCell.swift */; };
 		40966A6A212CE1280065B9FB /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40966A69212CE1280065B9FB /* ItemDetailViewController.swift */; };
 		40A32AD6212DE8C50076067C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A32AD5212DE8C50076067C /* InfoViewController.swift */; };
-		40A32AD8212DE8D10076067C /* SimilarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A32AD7212DE8D10076067C /* SimilarTableViewController.swift */; };
 		40A32ADA212DE8EA0076067C /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A32AD9212DE8EA0076067C /* RateViewController.swift */; };
 		40A32ADC212DEE3B0076067C /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A32ADB212DEE3B0076067C /* UIScrollView.swift */; };
 		40A32ADF212DF14B0076067C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A32ADE212DF14B0076067C /* UIViewController.swift */; };
@@ -82,7 +81,6 @@
 		40966A66212CC5F70065B9FB /* AllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTableViewCell.swift; sourceTree = "<group>"; };
 		40966A69212CE1280065B9FB /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		40A32AD5212DE8C50076067C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		40A32AD7212DE8D10076067C /* SimilarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarTableViewController.swift; sourceTree = "<group>"; };
 		40A32AD9212DE8EA0076067C /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		40A32ADB212DEE3B0076067C /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		40A32ADE212DF14B0076067C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 			children = (
 				40966A69212CE1280065B9FB /* ItemDetailViewController.swift */,
 				40A32AD5212DE8C50076067C /* InfoViewController.swift */,
-				40A32AD7212DE8D10076067C /* SimilarTableViewController.swift */,
 				40A32AD9212DE8EA0076067C /* RateViewController.swift */,
 			);
 			path = ItemDetail;
@@ -572,7 +569,6 @@
 				40100231212ACE4000319E43 /* CustomSegmentedControl.swift in Sources */,
 				40A32ADA212DE8EA0076067C /* RateViewController.swift in Sources */,
 				40966A67212CC5F70065B9FB /* AllTableViewCell.swift in Sources */,
-				40A32AD8212DE8D10076067C /* SimilarTableViewController.swift in Sources */,
 				40A32ADC212DEE3B0076067C /* UIScrollView.swift in Sources */,
 				408123AB212A33CA0091D1D9 /* UIImage.swift in Sources */,
 				40EF3D46212A1A9C00DE29EF /* UIView.swift in Sources */,

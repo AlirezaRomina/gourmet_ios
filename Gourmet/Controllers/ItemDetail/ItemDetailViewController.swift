@@ -11,7 +11,6 @@ import UIKit
 class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let infoViewController = InfoViewController()
-    let similarTableViewController = SimilarTableViewController()
     let rateViewController = RateViewController()
 
     let itemImageView: CustomImageView = {
@@ -45,7 +44,7 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     }()
     
     lazy var segmentedControl: CustomSegmentedControl = {
-        let sc = CustomSegmentedControl(segmentTitles: ["Info", "Similar Items", "Rate"])
+        let sc = CustomSegmentedControl(segmentTitles: ["Info", "Rate"])
         sc.delegate = self
         return sc
     }()
@@ -53,7 +52,7 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     lazy var containerScrollView: UIScrollView = {
         let sv =  UIScrollView(frame: CGRect.zero)
         sv.backgroundColor = .clear
-        sv.contentSize.width = view.bounds.width * 3
+        sv.contentSize.width = view.bounds.width * 2
         sv.showsVerticalScrollIndicator = false
         sv.showsHorizontalScrollIndicator = false
         sv.bounces = false
@@ -104,8 +103,8 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         view.addSubview(containerScrollView)
         containerScrollView.anchor(top: segmentedControl.bottomAnchor, left: view.leftAnchor, bottom: guide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
-        addChild(viewControllers: [infoViewController,similarTableViewController,rateViewController])
-        containerScrollView.addViews(views: [infoViewController.view, similarTableViewController.view, rateViewController.view], width: view.bounds.width)
+        addChild(viewControllers: [infoViewController,rateViewController])
+        containerScrollView.addViews(views: [infoViewController.view, rateViewController.view], width: view.bounds.width)
     }
    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {

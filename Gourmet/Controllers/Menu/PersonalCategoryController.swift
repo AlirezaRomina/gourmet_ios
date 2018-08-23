@@ -29,16 +29,16 @@ class PersonalCategoryController: UIViewController {
     
     let recomendedHeader: UILabel = {
         let label = UILabel()
-        label.text = "Recommended to You"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.text = "Recommended"
+        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .black
         return label
     }()
     
     let featuredHeader: UILabel = {
         let label = UILabel()
-        label.text = "Featured by Restaurant"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.text = "Featured by Eddy's Restaurant"
+        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .black
         return label
     }()
@@ -63,18 +63,18 @@ class PersonalCategoryController: UIViewController {
         tv.showsHorizontalScrollIndicator = false
         tv.showsVerticalScrollIndicator = false
         tv.tableFooterView = UIView()
-        tv.bounces = false
+        tv.bounces = true
         return tv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(recomendedHeader)
-        recomendedHeader.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 12 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        recomendedHeader.anchor(top: view.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 8 * designHeightRatio, paddingLeft: 0, paddingBottom: 0, paddingRight: 15, width: 0, height: 0)
         view.addSubview(recomendedCollectionView)
-        recomendedCollectionView.anchor(top: recomendedHeader.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 170 * designWidthRatio)
+        recomendedCollectionView.anchor(top: recomendedHeader.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 150 * designWidthRatio)
         view.addSubview(featuredHeader)
-        featuredHeader.anchor(top: recomendedCollectionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 7 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        featuredHeader.anchor(top: recomendedCollectionView.bottomAnchor, left: nil, bottom: nil, right:  view.rightAnchor, paddingTop: 8 * designHeightRatio, paddingLeft: 0, paddingBottom: 0, paddingRight: 15, width: 0, height: 0)
         view.addSubview(featuredTableView)
         featuredTableView.anchor(top: featuredHeader.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 2 * designHeightRatio, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
@@ -106,7 +106,7 @@ extension PersonalCategoryController: UICollectionViewDataSource,UICollectionVie
 
 extension PersonalCategoryController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

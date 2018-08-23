@@ -19,7 +19,7 @@ class AllTableViewCell: UITableViewCell {
     
     let headerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textColor = .black
         label.text = "Texas Steak House"
         label.numberOfLines = 2
@@ -27,7 +27,6 @@ class AllTableViewCell: UITableViewCell {
         label.minimumScaleFactor = 0.8
         return label
     }()
-    
     
     let priceLabel: UILabel = {
         let label = UILabel()

@@ -29,7 +29,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     let headerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = .white
         label.text = "Apetizers"
         return label
@@ -37,7 +37,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 11, weight: .medium)
         label.textColor = .white
         label.numberOfLines = 3
         label.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the the printing and"
