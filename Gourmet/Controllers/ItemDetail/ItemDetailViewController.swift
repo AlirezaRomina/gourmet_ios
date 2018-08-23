@@ -85,7 +85,7 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         view.backgroundColor = .white
         view.addSubview(itemImageView)
         itemImageView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        itemImageView.heightAnchor.constraint(equalTo: itemImageView.widthAnchor, multiplier: (0.9 - 60/view.bounds.width) * designHeightRatio).isActive = true
+        itemImageView.anchorProportion(view: view, widthRatio: nil, heightRatio: 0.34)
         view.layoutSubviews()
         let gradientImage = UIImage.image(withRGBAGradientColors: [1: RGBA(color: .gourmetPurple), 0.5: RGBA(color: .clear)], size: itemImageView.bounds.size)
         itemImageView.addMask(image: gradientImage)
@@ -98,7 +98,7 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         backButton.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 28, height: 28)
         
         view.addSubview(segmentedControl)
-          segmentedControl.anchor(top: arviewButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 12 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * designHeightRatio)
+          segmentedControl.anchor(top: arviewButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 10 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * designHeightRatio)
 
         view.addSubview(containerScrollView)
         containerScrollView.anchor(top: segmentedControl.bottomAnchor, left: view.leftAnchor, bottom: guide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)

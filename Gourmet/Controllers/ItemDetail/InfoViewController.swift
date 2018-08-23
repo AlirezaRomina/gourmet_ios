@@ -51,7 +51,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(headerLabel)
-        headerLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 20 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        headerLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 18 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     
         view.addSubview(ratingStarView)
         ratingStarView.anchor(top: headerLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 2, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
@@ -59,7 +59,7 @@ class InfoViewController: UIViewController {
         let ingredientsTitle = featureTitle(text: "Ingredients:")
         let ingredientsDetail = featureDetailText(text: "Lorem Ipsum is simply dummy text of the printing and lorem Ipsum is simply dummy Lorem Ipsum issimply dummy", font: UIFont.systemFont(ofSize: 12, weight: .regular), color: .black, numberOfLines: 4)
         let ingredientsStack = featureStackLabel(first: ingredientsTitle, second: ingredientsDetail, alignment: .top)
-        placeFeatureStack(ingredientsStack, titleView: ingredientsTitle,under: ratingStarView, padding: 12*designHeightRatio)
+        placeFeatureStack(ingredientsStack, titleView: ingredientsTitle,under: ratingStarView, padding: 18*designHeightRatio)
         
         let caloriesTitle = featureTitle(text: "Calories:")
         let caloriesDetail = featureDetailText(text: "145 kcal", font: UIFont.boldSystemFont(ofSize: 14))
