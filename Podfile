@@ -4,6 +4,11 @@ target 'Gourmet' do
   use_frameworks!
 
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  pod 'PromiseKit', '~> 6.0'
+  pod 'Swinject'
 
   target 'GourmetTests' do
     inherit! :search_paths

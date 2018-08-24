@@ -10,6 +10,14 @@ import UIKit
 
 extension UIViewController{
     
+    var ws: WebService? {
+        return Module.container.resolve(WebService.self)
+    }
+    
+    var cs: ClientSession?{
+        return Module.container.resolve(ClientSession.self)
+    }
+    
     func addChild(viewControllers: [UIViewController]){
         viewControllers.forEach {
             addChild($0)

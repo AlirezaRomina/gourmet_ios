@@ -14,7 +14,7 @@ class InfoViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 26, weight: .medium)
         label.textColor = .black
-        label.text = "Texas Steak House"
+        label.text = "Item Name"
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7
@@ -81,7 +81,7 @@ class InfoViewController: UIViewController {
         view.addSubview(orderButton)
         orderButton.anchorMiddle(horizontal: self.view, vertical: nil)
         orderButton.anchor(top: nil, left: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 20*designHeightRatio, paddingRight: 0, width: 150*designHeightRatio, height: 36 * designHeightRatio)
-    }
+    }    
     
     fileprivate func featureStackLabel(first: UIView, second: UILabel, alignment: UIStackView.Alignment = .center ) -> UIStackView{
         let stackView = UIStackView(arrangedSubviews: [first, second])

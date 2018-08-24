@@ -6,38 +6,67 @@
 //  Copyright © 2018 Deniz Mersinlioglu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol Item{
-    var id: String {get set}
+    var id: Int64 {get set}
     var name: String {get set}
-    var description: String {get set}
+    var ingredients: String {get set}
     var imageUrl: String {get set}
     var rating: Double {get set}
     var rateNumber: Int {get set}
     var price: Double {get set}
-    var currency: String {get set}
+    var vegan: Bool {get set}
+    var calories: Double {get set}
 }
 
 struct ItemModel: Item, Codable{
-    var id: String
+    var id: Int64
     var name: String
-    var description: String
+    var ingredients: String
     var imageUrl: String
     var rating: Double
     var rateNumber: Int
     var price: Double
-    var currency: String
+    var vegan: Bool
+    var calories: Double
     
-    init(id: String, name: String, description: String, imageUrl: String, rating: Double, rateNumber: Int, price: Double, currency: String) {
+    init(id: Int64, name: String, ingredients: String, imageUrl: String, rating: Double, rateNumber: Int, price: Double, vegan: Bool, calories: Double) {
         self.id = id
         self.name = name
-        self.description = description
+        self.ingredients = ingredients
         self.imageUrl = imageUrl
         self.rating = rating
         self.rateNumber = rateNumber
         self.price = price
-        self.currency = currency
+        self.vegan = vegan
+        self.calories = calories
     }
     
 }
+
+struct ItemCreationModel{
+    var id: Int64
+    var name: String
+    var ingredients: String
+    var image: UIImage
+    var rating: Double
+    var rateNumber: Int
+    var price: Double
+    var vegan: Bool
+    var calories: Double
+    
+    init(id: Int64, name: String, ingredients: String, image: UIImage, rating: Double, rateNumber: Int, price: Double, vegan: Bool, calories: Double) {
+        self.id = id
+        self.name = name
+        self.ingredients = ingredients
+        self.image = image
+        self.rating = rating
+        self.rateNumber = rateNumber
+        self.price = price
+        self.vegan = vegan
+        self.calories = calories
+    }
+    
+}
+

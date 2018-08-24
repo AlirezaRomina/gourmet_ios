@@ -33,12 +33,12 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     let backButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(white: 0, alpha: 0.2)
-        button.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        button.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         button.setImage(#imageLiteral(resourceName: "ic_back_btn"), for: .normal)
         button.addTarget(self, action: #selector(pop), for: .touchUpInside)
         button.contentMode = .scaleAspectFill
         button.tintColor = .white
-        button.layer.cornerRadius = 14
+        button.layer.cornerRadius = 18
         button.clipsToBounds = true
         return button
     }()
@@ -96,7 +96,7 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
         view.sendSubviewToBack(arviewButton)
         
         view.addSubview(backButton)
-        backButton.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 28, height: 28)
+        backButton.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 36, height: 36)
         
         view.addSubview(segmentedControl)
           segmentedControl.anchor(top: arviewButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 10 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 15, width: 0, height: 30 * designHeightRatio)

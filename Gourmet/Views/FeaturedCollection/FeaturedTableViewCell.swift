@@ -22,7 +22,7 @@ class FeaturedTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         label.textColor = .black
-        label.text = "Texas Steak House"
+        label.text = "Item Name"
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.8

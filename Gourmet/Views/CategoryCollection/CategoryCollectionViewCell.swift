@@ -31,7 +31,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = .white
-        label.text = "Apetizers"
+        label.text = "Category Name"
         return label
     }()
     
@@ -40,7 +40,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 11, weight: .medium)
         label.textColor = .white
         label.numberOfLines = 3
-        label.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the the printing and"
+        label.text = "Category short description \nMaximum 2 lines"
         return label
     }()
     

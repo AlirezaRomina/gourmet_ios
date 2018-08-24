@@ -52,7 +52,7 @@ class MenuController: UIViewController, UIGestureRecognizerDelegate {
         allCategoryController.delegate = self
         personalCategoryController.delegate = self
         view.backgroundColor = .white
-        navigationItem.title = "Eddy's Restaurant"
+        navigationItem.title = "Restaurant Name"
         let guide = view.safeAreaLayoutGuide
         
         view.addSubview(categoriesCollectionView)
@@ -69,7 +69,6 @@ class MenuController: UIViewController, UIGestureRecognizerDelegate {
         addChild(viewControllers: [allCategoryController,personalCategoryController])
     }
    
-    
     func getCategories(){
         // TODO
     }

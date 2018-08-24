@@ -16,7 +16,7 @@ class RateViewController: UIViewController, UITextViewDelegate {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 26, weight: .medium)
         label.textColor = .black
-        label.text = "Texas Steak House"
+        label.text = "Item Name"
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.7

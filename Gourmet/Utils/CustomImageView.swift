@@ -7,13 +7,11 @@
 //
 
 import UIKit
-
-var imageCache = [String: UIImage]()
+import Swinject
 
 class CustomImageView: UIImageView {
     
-    var lastURLUsedToLoadImage: String?
-    
+    let imageLoader = ImageLoader()
     convenience init(){
         self.init(frame: CGRect.zero)
     }
@@ -29,29 +27,10 @@ class CustomImageView: UIImageView {
     }
     
     func loadImage(urlString: String){
-        lastURLUsedToLoadImage = urlString
-        
-        if let cachedImage = imageCache[urlString] {
-            self.image = cachedImage
-            return
-        }
-        
-        guard let url = URL(string: urlString) else {return}
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-            if let err = err{
-                print("Failed to fetch profile image", err)
-                return
-            }
-            
-            guard url.absoluteString == self.lastURLUsedToLoadImage,
-                let data = data  else {return}
-            
-            let image = UIImage(data: data)
-            imageCache[url.absoluteString] = image
-            
+        imageLoader.loadImage(from: urlString) { (image) in
             DispatchQueue.main.async {
                 self.image = image
             }
-            }.resume()
+        }
     }
 }

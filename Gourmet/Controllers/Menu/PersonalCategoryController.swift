@@ -37,7 +37,7 @@ class PersonalCategoryController: UIViewController {
     
     let featuredHeader: UILabel = {
         let label = UILabel()
-        label.text = "Featured by Eddy's Restaurant"
+        label.text = "Featured by Restaurant"
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .black
         return label
