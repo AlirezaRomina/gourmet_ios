@@ -93,7 +93,7 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
         view.addSubview(arviewButton)
         arviewButton.anchor(top: itemImageView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: -8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 60 * designHeightRatio)
-        view.sendSubviewToBack(arviewButton)
+        view.sendSubview(toBack: arviewButton)
         
         view.addSubview(backButton)
         backButton.anchor(top: guide.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 12, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 36, height: 36)

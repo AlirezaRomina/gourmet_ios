@@ -100,7 +100,7 @@ struct StarLayer {
         
         containerLayer.addSublayer(imageLayer)
         imageLayer.contents = image.cgImage
-        imageLayer.contentsGravity = CALayerContentsGravity.resizeAspect
+        imageLayer.contentsGravity = kCAGravityResizeAspect
         
         return containerLayer
     }
@@ -231,7 +231,7 @@ struct CosmosAccessibility {
         view.isAccessibilityElement = true
         
         view.accessibilityTraits = settings.updateOnTouch ?
-            UIAccessibilityTraits.adjustable :UIAccessibilityTraits.none
+            UIAccessibilityTraitAdjustable : UIAccessibilityTraitNone
         
         var accessibilityLabel = CosmosLocalizedRating.ratingTranslation
         
@@ -432,7 +432,7 @@ struct CosmosDefaultSettings {
     static let textColor = UIColor(red: 127/255, green: 127/255, blue: 127/255, alpha: 1)
     
     /// Font for the text.
-    static let textFont = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.footnote)
+    static let textFont = UIFont.preferredFont(forTextStyle: UIFontTextStyle.footnote)
     
     /// Distance between the text and the stars.
     static let textMargin: Double = 5
@@ -778,7 +778,7 @@ class CosmosLayerHelper {
      
      */
     class func createTextLayer(_ text: String, font: UIFont, color: UIColor) -> CATextLayer {
-        let size = NSString(string: text).size(withAttributes: [NSAttributedString.Key.font: font])
+        let size = NSString(string: text).size(withAttributes: [.font: font])
         
         let layer = CATextLayer()
         layer.bounds = CGRect(origin: CGPoint(), size: size)

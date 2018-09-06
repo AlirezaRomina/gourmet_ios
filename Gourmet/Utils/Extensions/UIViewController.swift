@@ -20,8 +20,8 @@ extension UIViewController{
     
     func addChild(viewControllers: [UIViewController]){
         viewControllers.forEach {
-            addChild($0)
-            $0.didMove(toParent: self)
+            addChildViewController($0)
+            $0.didMove(toParentViewController: self)
         }
     }
     

@@ -85,8 +85,8 @@ class RateViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         hideKeyboardOnTap()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil);
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil);
         
         view.addSubview(headerLabel)
         headerLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 20 * designHeightRatio, paddingLeft: 15, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)

@@ -60,7 +60,7 @@ class AllTableViewCell: UITableViewCell {
         return iv
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(itemImageView)
         itemImageView.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, bottom: contentView.bottomAnchor, right: nil, paddingTop: 8 * designHeightRatio, paddingLeft: 15, paddingBottom: 8 * designHeightRatio, paddingRight: 0, width: 0, height: 0)
