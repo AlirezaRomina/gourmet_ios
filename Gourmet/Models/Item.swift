@@ -42,31 +42,5 @@ struct ItemModel: Item, Codable{
         self.vegan = vegan
         self.calories = calories
     }
-    
-}
-
-struct ItemCreationModel{
-    var id: Int64
-    var name: String
-    var ingredients: String
-    var image: UIImage
-    var rating: Double
-    var rateNumber: Int
-    var price: Double
-    var vegan: Bool
-    var calories: Double
-    
-    init(id: Int64, name: String, ingredients: String, image: UIImage, rating: Double, rateNumber: Int, price: Double, vegan: Bool, calories: Double) {
-        self.id = id
-        self.name = name
-        self.ingredients = ingredients
-        self.image = image
-        self.rating = rating
-        self.rateNumber = rateNumber
-        self.price = price
-        self.vegan = vegan
-        self.calories = calories
-    }
-    
 }
 

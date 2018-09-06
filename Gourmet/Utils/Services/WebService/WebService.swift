@@ -9,5 +9,5 @@
 import Foundation
 import PromiseKit
 
-protocol WebService{
+class WebService{
 }

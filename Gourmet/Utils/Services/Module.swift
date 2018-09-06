@@ -14,7 +14,7 @@ class Module {
     static let container = Container()
     
     class func injectDependecies(container: Container) {
-        container.register(WebService.self) {_ in MockWebService()}
+        container.register(WebService.self) {_ in WebService()}
         container.register(ClientSession.self) {_ in ClientSession()}
     }
     

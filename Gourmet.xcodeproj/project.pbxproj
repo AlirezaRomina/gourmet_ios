@@ -35,8 +35,6 @@
 		40B8AB2F212F4DEF00119E70 /* HTTPNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B8AB2E212F4DEF00119E70 /* HTTPNetworking.swift */; };
 		40B8AB31212F4EED00119E70 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B8AB30212F4EED00119E70 /* ImageCache.swift */; };
 		40B8AB33212F59C100119E70 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B8AB32212F59C100119E70 /* ImageLoader.swift */; };
-		40B8AB35212F650A00119E70 /* MockWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B8AB34212F650A00119E70 /* MockWebService.swift */; };
-		40CFB9EE212A222D00446F06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40CFB9ED212A222D00446F06 /* GoogleService-Info.plist */; };
 		40DE9AAC212EF06900B8F28B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DE9AAB212EF06900B8F28B /* Restaurant.swift */; };
 		40EF3D09212A106600DE29EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF3D08212A106600DE29EF /* AppDelegate.swift */; };
 		40EF3D0E212A106600DE29EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40EF3D0C212A106600DE29EF /* Main.storyboard */; };
@@ -98,8 +96,6 @@
 		40B8AB2E212F4DEF00119E70 /* HTTPNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPNetworking.swift; sourceTree = "<group>"; };
 		40B8AB30212F4EED00119E70 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		40B8AB32212F59C100119E70 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
-		40B8AB34212F650A00119E70 /* MockWebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebService.swift; sourceTree = "<group>"; };
-		40CFB9ED212A222D00446F06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40DE9AAB212EF06900B8F28B /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		40EF3D05212A106600DE29EF /* Gourmet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gourmet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40EF3D08212A106600DE29EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,7 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				40B8AB21212F0AB700119E70 /* WebService.swift */,
-				40B8AB34212F650A00119E70 /* MockWebService.swift */,
 			);
 			path = WebService;
 			sourceTree = "<group>";
@@ -257,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				40EF3D08212A106600DE29EF /* AppDelegate.swift */,
-				40CFB9ED212A222D00446F06 /* GoogleService-Info.plist */,
 				40EF3D14212A106800DE29EF /* Info.plist */,
 				40EF3D3D212A17DA00DE29EF /* SupportingFiles */,
 				40EF3D41212A19B500DE29EF /* Utils */,
@@ -485,7 +479,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				40EF3D13212A106800DE29EF /* LaunchScreen.storyboard in Resources */,
-				40CFB9EE212A222D00446F06 /* GoogleService-Info.plist in Resources */,
 				40EF3D39212A13C100DE29EF /* Assets.xcassets in Resources */,
 				40EF3D0E212A106600DE29EF /* Main.storyboard in Resources */,
 			);
@@ -617,7 +610,6 @@
 				40B8AB24212F0ADD00119E70 /* Module.swift in Sources */,
 				408123AB212A33CA0091D1D9 /* UIImage.swift in Sources */,
 				40B8AB33212F59C100119E70 /* ImageLoader.swift in Sources */,
-				40B8AB35212F650A00119E70 /* MockWebService.swift in Sources */,
 				40EF3D46212A1A9C00DE29EF /* UIView.swift in Sources */,
 				40EF3D44212A19C900DE29EF /* UIColor.swift in Sources */,
 				4010022D212AC55000319E43 /* Category.swift in Sources */,
