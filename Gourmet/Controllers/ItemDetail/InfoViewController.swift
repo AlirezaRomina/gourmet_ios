@@ -83,7 +83,7 @@ class InfoViewController: UIViewController {
         orderButton.anchor(top: nil, left: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 20*designHeightRatio, paddingRight: 0, width: 150*designHeightRatio, height: 36 * designHeightRatio)
     }    
     
-    fileprivate func featureStackLabel(first: UIView, second: UILabel, alignment: UIStackViewAlignment = .center ) -> UIStackView{
+    fileprivate func featureStackLabel(first: UIView, second: UILabel, alignment: UIStackView.Alignment = .center ) -> UIStackView{
         let stackView = UIStackView(arrangedSubviews: [first, second])
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
@@ -91,7 +91,7 @@ class InfoViewController: UIViewController {
         return stackView
     }
     
-    fileprivate func featureStackImage(first: UIView, second: UIImageView, alignment: UIStackViewAlignment = .center) -> UIStackView{
+    fileprivate func featureStackImage(first: UIView, second: UIImageView, alignment: UIStackView.Alignment = .center) -> UIStackView{
         let stackView = UIStackView(arrangedSubviews: [first, second])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
