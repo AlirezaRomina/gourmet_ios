@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PKN-uZ-4LK">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="Blv-zt-Nae" customClass="MenuController" customModule="Gourmet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nPQ-cM-hSY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BP3-lI-HEZ">
-                                <rect key="frame" x="0.0" y="72" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="96" width="414" height="170"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="170" id="OXB-na-qMN"/>
@@ -27,7 +27,7 @@
                                 <collectionViewLayout key="collectionViewLayout" id="nnL-Au-3iq" customClass="CategoryCollectionFlowLayout" customModule="Gourmet" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="IVc-hW-XEU" customClass="CategoryCollectionCell" customModule="Gourmet" customModuleProvider="target">
-                                        <rect key="frame" x="2" y="0.0" width="371" height="168"/>
+                                        <rect key="frame" x="21.5" y="0.0" width="371" height="168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="371" height="168"/>
@@ -92,7 +92,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ej-rf-4iF" customClass="CustomSegmentedControl" customModule="Gourmet" customModuleProvider="target">
-                                <rect key="frame" x="15" y="224" width="345" height="30"/>
+                                <rect key="frame" x="15" y="268" width="384" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="LB9-ZF-k9R"/>
@@ -102,16 +102,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uko-ya-CCM">
-                                <rect key="frame" x="0.0" y="254" width="375" height="413"/>
+                                <rect key="frame" x="0.0" y="298" width="414" height="564"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNc-Um-Inn">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="413"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>
                                         <connections>
                                             <segue destination="bUh-4N-m8A" kind="embed" identifier="toAllCategoryController" id="jBt-BU-IZ3"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Knd-YJ-K15">
-                                        <rect key="frame" x="375" y="0.0" width="375" height="413"/>
+                                        <rect key="frame" x="414" y="0.0" width="414" height="564"/>
                                         <connections>
                                             <segue destination="ztQ-er-AiG" kind="embed" identifier="toPersonalCategoryController" id="XiE-z9-byI"/>
                                         </connections>
@@ -178,7 +178,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PKN-uZ-4LK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PuO-sU-aTm">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -195,78 +195,96 @@
             <objects>
                 <tableViewController id="bUh-4N-m8A" customClass="AllCategoryController" customModule="Gourmet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6ZW-TS-ZvX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="413"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Ll7-uH-PO8">
-                            <rect key="frame" x="0.0" y="98" width="375" height="0.0"/>
+                            <rect key="frame" x="0.0" y="118" width="414" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allCategoryTableCell" rowHeight="70" id="Xka-me-nVz" customClass="AllCategoryTableCell" customModule="Gourmet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="allCategoryTableCell" rowHeight="90" id="Xka-me-nVz" customClass="AllCategoryTableCell" customModule="Gourmet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xka-me-nVz" id="amN-Cb-EbC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nLr-TA-2P6">
-                                            <rect key="frame" x="74.5" y="-9.5" width="266.5" height="88.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="s3Y-Hc-18E">
+                                            <rect key="frame" x="253" y="36.5" width="30" height="17"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokum Burger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-E3-MTU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="93" height="17.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="la5-eP-7X0" customClass="CosmosView" customModule="Gourmet" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="19.5" width="83.5" height="50"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="star_filled"/>
-                                                        <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="star_unfilled"/>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
-                                                            <integer key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
-                                                            <real key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                                            <real key="value" value="3"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="(52)"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
-                                                            <integer key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="textSize">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATc-Ga-ibr">
-                                                    <rect key="frame" x="0.0" y="71.5" width="27" height="17"/>
+                                                    <rect key="frame" x="3" y="0.0" width="27" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <color key="textColor" red="0.8244805932" green="0.23297163839999999" blue="0.22025263310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="mSe-MV-3Er"/>
+                                            </constraints>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="nLr-TA-2P6">
+                                            <rect key="frame" x="92.5" y="6" width="152.5" height="70"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="DeT-Nr-B6h">
+                                                    <rect key="frame" x="0.0" y="0.0" width="93" height="30"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokum Burger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-E3-MTU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="la5-eP-7X0" customClass="CosmosView" customModule="Gourmet" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="20" width="58" height="10"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="star_filled"/>
+                                                                <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="star_unfilled"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                                                    <integer key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                                    <real key="value" value="3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yumşacık dana lokumun hamburgerle buluşması. Patates ve kola ile servis edilir" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-yd-zCM">
+                                                    <rect key="frame" x="0.0" y="34" width="149" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </stackView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="6Q8-on-xK8">
-                                            <rect key="frame" x="15" y="9" width="51.5" height="51.5"/>
+                                            <rect key="frame" x="15" y="12" width="65.5" height="65.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="6Q8-on-xK8" secondAttribute="height" multiplier="1:1" id="whb-aO-XiD"/>
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="Cem-AP-qcL">
-                                            <rect key="frame" x="341" y="27" width="9" height="16"/>
+                                            <rect key="frame" x="293" y="37" width="9" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="9" id="Qb2-xc-vif"/>
                                                 <constraint firstAttribute="height" constant="16" id="gWy-0m-7m9"/>
@@ -274,14 +292,16 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="6Q8-on-xK8" firstAttribute="top" secondItem="amN-Cb-EbC" secondAttribute="top" constant="9" id="FPi-ew-3EZ"/>
-                                        <constraint firstAttribute="trailing" secondItem="Cem-AP-qcL" secondAttribute="trailing" constant="25" id="RVY-Gr-2Nu"/>
-                                        <constraint firstItem="Cem-AP-qcL" firstAttribute="leading" secondItem="nLr-TA-2P6" secondAttribute="trailing" id="UWf-WG-RqT"/>
-                                        <constraint firstItem="nLr-TA-2P6" firstAttribute="leading" secondItem="6Q8-on-xK8" secondAttribute="trailing" constant="8" id="V0H-dL-dGF"/>
+                                        <constraint firstItem="Cem-AP-qcL" firstAttribute="leading" secondItem="s3Y-Hc-18E" secondAttribute="trailing" constant="10" id="5gi-eK-dvI"/>
+                                        <constraint firstItem="6Q8-on-xK8" firstAttribute="top" secondItem="amN-Cb-EbC" secondAttribute="top" constant="12" id="FPi-ew-3EZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="Cem-AP-qcL" secondAttribute="trailing" constant="18" id="RVY-Gr-2Nu"/>
+                                        <constraint firstItem="nLr-TA-2P6" firstAttribute="leading" secondItem="6Q8-on-xK8" secondAttribute="trailing" constant="12" id="V0H-dL-dGF"/>
                                         <constraint firstItem="6Q8-on-xK8" firstAttribute="leading" secondItem="amN-Cb-EbC" secondAttribute="leading" constant="15" id="VVk-pD-QmM"/>
-                                        <constraint firstAttribute="bottom" secondItem="6Q8-on-xK8" secondAttribute="bottom" constant="9" id="Ye2-ht-R7D"/>
+                                        <constraint firstAttribute="bottom" secondItem="6Q8-on-xK8" secondAttribute="bottom" constant="12" id="Ye2-ht-R7D"/>
                                         <constraint firstItem="Cem-AP-qcL" firstAttribute="centerY" secondItem="amN-Cb-EbC" secondAttribute="centerY" id="dhI-g1-vZA"/>
-                                        <constraint firstItem="nLr-TA-2P6" firstAttribute="centerY" secondItem="amN-Cb-EbC" secondAttribute="centerY" id="xzc-Yj-k9i"/>
+                                        <constraint firstItem="s3Y-Hc-18E" firstAttribute="leading" secondItem="nLr-TA-2P6" secondAttribute="trailing" constant="8" id="fhT-ig-wwK"/>
+                                        <constraint firstItem="s3Y-Hc-18E" firstAttribute="centerY" secondItem="amN-Cb-EbC" secondAttribute="centerY" id="fl2-u8-jyv"/>
+                                        <constraint firstItem="nLr-TA-2P6" firstAttribute="centerY" secondItem="amN-Cb-EbC" secondAttribute="centerY" constant="-4" id="xzc-Yj-k9i"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -300,18 +320,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eaY-Yg-KW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="647" y="774"/>
+            <point key="canvasLocation" x="645.60000000000002" y="773.16341829085468"/>
         </scene>
         <!--Personal Category Controller-->
         <scene sceneID="Mxs-zv-839">
             <objects>
                 <viewController id="ztQ-er-AiG" customClass="PersonalCategoryController" customModule="Gourmet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bSg-SE-uMM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="413"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="564"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beğenebileceklerin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-fs-Rly">
-                                <rect key="frame" x="248" y="6" width="107" height="15"/>
+                                <rect key="frame" x="287" y="6" width="107" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="bmX-ck-5xv"/>
                                 </constraints>
@@ -319,24 +339,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restorantın Önerdikleri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpW-Ro-1OU">
-                                <rect key="frame" x="227" y="173" width="128" height="15"/>
+                                <rect key="frame" x="266" y="173" width="128" height="15"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OcN-nW-e0v">
-                                <rect key="frame" x="0.0" y="190" width="375" height="223"/>
+                                <rect key="frame" x="0.0" y="190" width="414" height="374"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Gnm-3i-dWa">
-                                    <rect key="frame" x="0.0" y="98" width="375" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="98" width="414" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="featuredCellId" rowHeight="70" id="scJ-la-JYQ" customClass="FeaturedTableCell" customModule="Gourmet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="scJ-la-JYQ" id="6H1-ZQ-nJw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="I6g-FT-8Pv">
@@ -346,16 +366,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="t8E-Yv-NVk">
-                                                    <rect key="frame" x="74.5" y="-9.5" width="266.5" height="88.5"/>
+                                                    <rect key="frame" x="74.5" y="10.5" width="266.5" height="48.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokum Burger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-E5-FR6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="17.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1LE-tY-erK" customClass="CosmosView" customModule="Gourmet" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="19.5" width="83.5" height="50"/>
+                                                            <rect key="frame" x="0.0" y="19" width="83.5" height="10.5"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="star_filled"/>
@@ -386,7 +406,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28 TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGM-H8-qTD">
-                                                            <rect key="frame" x="0.0" y="71.5" width="38.5" height="17"/>
+                                                            <rect key="frame" x="0.0" y="31.5" width="38.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" red="0.82448059320449829" green="0.23297163844108582" blue="0.2202526330947876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -426,7 +446,7 @@
                                 </connections>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AtP-6N-T9k">
-                                <rect key="frame" x="0.0" y="21" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="21" width="414" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="y9b-oN-dmn"/>
