@@ -39,13 +39,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="nfY-w2-3ol">
                                                     <rect key="frame" x="23" y="116" width="297" height="38"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fg-39-Rct">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategori İsmi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fg-39-Rct">
                                                             <rect key="frame" x="0.0" y="0.0" width="297" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category short description \n Maximum 2 lines" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUT-3Y-mxH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kategorinin ismi burada yer alacak" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUT-3Y-mxH">
                                                             <rect key="frame" x="0.0" y="24.5" width="297" height="13.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,7 +84,7 @@
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="30" id="LB9-ZF-k9R"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeperatedSegmentTitles" value="All, Personal"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="commaSeperatedSegmentTitles" value="Tümü,Sana Özel"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uko-ya-CCM">
@@ -198,16 +198,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nLr-TA-2P6">
-                                            <rect key="frame" x="74.5" y="31.5" width="266.5" height="6.5"/>
+                                            <rect key="frame" x="74.5" y="10.5" width="266.5" height="48.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-E3-MTU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="71.5" height="1.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokum Burger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-E3-MTU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="93" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="la5-eP-7X0" customClass="CosmosView" customModule="Gourmet" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="3.5" width="83.5" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="19" width="83.5" height="10.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="star_filled"/>
@@ -238,7 +238,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATc-Ga-ibr">
-                                                    <rect key="frame" x="0.0" y="5.5" width="27" height="1"/>
+                                                    <rect key="frame" x="0.0" y="31.5" width="27" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <color key="textColor" red="0.8244805932" green="0.23297163839999999" blue="0.22025263310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -296,16 +296,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="413"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-fs-Rly">
-                                <rect key="frame" x="275" y="6" width="85" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beğenebileceklerin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-fs-Rly">
+                                <rect key="frame" x="248" y="6" width="107" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="bmX-ck-5xv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured by Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpW-Ro-1OU">
-                                <rect key="frame" x="213" y="173" width="131" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restorantın Önerdikleri" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpW-Ro-1OU">
+                                <rect key="frame" x="227" y="173" width="128" height="15"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -332,16 +332,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="t8E-Yv-NVk">
-                                                    <rect key="frame" x="74.5" y="-9.5" width="266.5" height="88.5"/>
+                                                    <rect key="frame" x="74.5" y="10.5" width="266.5" height="48.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-E5-FR6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="71.5" height="17.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokum Burger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-E5-FR6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="93" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1LE-tY-erK" customClass="CosmosView" customModule="Gourmet" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="19.5" width="83.5" height="50"/>
+                                                            <rect key="frame" x="0.0" y="19" width="83.5" height="10.5"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="star_filled"/>
@@ -371,8 +371,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGM-H8-qTD">
-                                                            <rect key="frame" x="0.0" y="71.5" width="27" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28 TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGM-H8-qTD">
+                                                            <rect key="frame" x="0.0" y="31.5" width="38.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" red="0.82448059320449829" green="0.23297163844108582" blue="0.2202526330947876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -429,7 +429,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="ehQ-fE-EE0">
                                                     <rect key="frame" x="0.0" y="0.0" width="134" height="121"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUX-uk-osJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokum Burger" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUX-uk-osJ">
                                                     <rect key="frame" x="5" y="99" width="124" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -478,15 +478,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="OcN-nW-e0v" secondAttribute="bottom" id="5S6-fy-iLQ"/>
+                            <constraint firstItem="ioJ-qf-W8U" firstAttribute="trailing" secondItem="tpW-Ro-1OU" secondAttribute="trailing" constant="20" id="6FB-cc-6kb"/>
                             <constraint firstAttribute="trailing" secondItem="AtP-6N-T9k" secondAttribute="trailing" id="9i7-TT-Sq1"/>
                             <constraint firstItem="OcN-nW-e0v" firstAttribute="top" secondItem="tpW-Ro-1OU" secondAttribute="bottom" constant="2" id="CgE-Sz-ZDP"/>
-                            <constraint firstAttribute="trailing" secondItem="RIp-fs-Rly" secondAttribute="trailing" constant="15" id="DwH-8z-TvQ"/>
                             <constraint firstItem="tpW-Ro-1OU" firstAttribute="top" secondItem="AtP-6N-T9k" secondAttribute="bottom" constant="2" id="Nu2-fy-cgS"/>
                             <constraint firstItem="AtP-6N-T9k" firstAttribute="top" secondItem="RIp-fs-Rly" secondAttribute="bottom" id="QTq-qe-jLP"/>
                             <constraint firstAttribute="trailing" secondItem="OcN-nW-e0v" secondAttribute="trailing" id="RCq-QS-fhn"/>
                             <constraint firstItem="OcN-nW-e0v" firstAttribute="leading" secondItem="bSg-SE-uMM" secondAttribute="leading" id="ds9-Bi-ouC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tpW-Ro-1OU" secondAttribute="trailing" constant="15" id="h73-q1-Dg7"/>
                             <constraint firstItem="RIp-fs-Rly" firstAttribute="top" secondItem="bSg-SE-uMM" secondAttribute="top" constant="6" id="iFJ-MY-pDk"/>
+                            <constraint firstItem="ioJ-qf-W8U" firstAttribute="trailing" secondItem="RIp-fs-Rly" secondAttribute="trailing" constant="20" id="sIC-7Y-3ie"/>
                             <constraint firstItem="AtP-6N-T9k" firstAttribute="leading" secondItem="bSg-SE-uMM" secondAttribute="leading" id="y2f-Bj-4ui"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ioJ-qf-W8U"/>

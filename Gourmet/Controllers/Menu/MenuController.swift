@@ -23,7 +23,7 @@ class MenuController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.title = "Restaurant Name"
+        navigationItem.title = "İstinye Burger Salonu"
         segmentedControl.delegate = self
         allCategoryController.delegate = self
         personalCategoryController.delegate = self
