@@ -71,7 +71,6 @@ extension MenuController: UICollectionViewDelegate{
         guard !ratio.isNaN, !ratio.isInfinite else {return}
         segmentedControl.animateSelectedLine(to: ratio * CGFloat(segmentedControl.segmentTitles.count))
     }
-
 }
 
 extension MenuController: CustomSegmentedControlDelegate{
@@ -83,11 +82,9 @@ extension MenuController: CustomSegmentedControlDelegate{
 }
 extension MenuController: AllCategoryDelegate, PersonalCategoryDelegate{
     func itemSelected(_ allCategoryController: AllCategoryController) {
-        let vc = ItemDetailViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        performSegue(withIdentifier: "toItemDetail", sender: nil)
     }
     func itemSelected(_ personalCategoryController: PersonalCategoryController) {
-        let vc = ItemDetailViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        performSegue(withIdentifier: "toItemDetail", sender: nil)
     }
 }

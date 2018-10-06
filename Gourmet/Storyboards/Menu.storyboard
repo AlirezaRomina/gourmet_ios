@@ -143,11 +143,20 @@
                         <outlet property="categoryCollection" destination="BP3-lI-HEZ" id="RNs-n1-fxG"/>
                         <outlet property="containerScroll" destination="uko-ya-CCM" id="cox-h7-gQK"/>
                         <outlet property="segmentedControl" destination="8ej-rf-4iF" id="oII-zC-rUM"/>
+                        <segue destination="Zdr-Pp-cPf" kind="show" identifier="toItemDetail" id="EQd-LA-Fqf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTs-4J-EqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087.2" y="114.69265367316342"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="uFU-Xk-dz2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Item" id="Zdr-Pp-cPf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EnI-0a-VMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910" y="114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vmi-Or-vQd">
@@ -189,16 +198,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nLr-TA-2P6">
-                                            <rect key="frame" x="74.5" y="10.5" width="266.5" height="48.5"/>
+                                            <rect key="frame" x="74.5" y="31.5" width="266.5" height="6.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dw-E3-MTU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="71.5" height="17"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="71.5" height="1.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="la5-eP-7X0" customClass="CosmosView" customModule="Gourmet" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="19" width="83.5" height="10.5"/>
+                                                    <rect key="frame" x="0.0" y="3.5" width="83.5" height="0.0"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="star_filled"/>
@@ -229,7 +238,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATc-Ga-ibr">
-                                                    <rect key="frame" x="0.0" y="31.5" width="27" height="17"/>
+                                                    <rect key="frame" x="0.0" y="5.5" width="27" height="1"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <color key="textColor" red="0.8244805932" green="0.23297163839999999" blue="0.22025263310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -289,6 +298,9 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIp-fs-Rly">
                                 <rect key="frame" x="275" y="6" width="85" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="bmX-ck-5xv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -320,16 +332,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="t8E-Yv-NVk">
-                                                    <rect key="frame" x="74.5" y="10.5" width="266.5" height="48.5"/>
+                                                    <rect key="frame" x="74.5" y="-9.5" width="266.5" height="88.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-E5-FR6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="71.5" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="71.5" height="17.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1LE-tY-erK" customClass="CosmosView" customModule="Gourmet" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="19" width="83.5" height="10.5"/>
+                                                            <rect key="frame" x="0.0" y="19.5" width="83.5" height="50"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="star_filled"/>
@@ -360,7 +372,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGM-H8-qTD">
-                                                            <rect key="frame" x="0.0" y="31.5" width="27" height="17"/>
+                                                            <rect key="frame" x="0.0" y="71.5" width="27" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                             <color key="textColor" red="0.82448059320449829" green="0.23297163844108582" blue="0.2202526330947876" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -483,6 +495,7 @@
                         <outlet property="featuredTable" destination="OcN-nW-e0v" id="kPU-qJ-YsL"/>
                         <outlet property="recommendedCollection" destination="AtP-6N-T9k" id="a7q-nj-o7J"/>
                         <outlet property="recommendedHeightAnchor" destination="y9b-oN-dmn" id="XUj-Aa-zag"/>
+                        <outlet property="recommendedLabelHeight" destination="bmX-ck-5xv" id="i0d-So-Y1u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQN-d3-lge" userLabel="First Responder" sceneMemberID="firstResponder"/>

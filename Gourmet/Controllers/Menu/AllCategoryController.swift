@@ -16,11 +16,6 @@ class AllCategoryController: UITableViewController {
     let cellId = "allCategoryTableCell"
     var delegate: AllCategoryDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        tableView.register(AllCategoryTableCell.self, forCellReuseIdentifier: cellId)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let index = tableView.indexPathForSelectedRow{

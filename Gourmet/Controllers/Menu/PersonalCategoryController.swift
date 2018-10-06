@@ -14,6 +14,7 @@ protocol PersonalCategoryDelegate {
 
 class PersonalCategoryController: UIViewController,UIGestureRecognizerDelegate {
     
+    @IBOutlet var recommendedLabelHeight: NSLayoutConstraint!
     @IBOutlet var featuredTable: UITableView!
     @IBOutlet var recommendedCollection: UICollectionView!
     @IBOutlet var recommendedHeightAnchor: NSLayoutConstraint!
@@ -56,7 +57,6 @@ class PersonalCategoryController: UIViewController,UIGestureRecognizerDelegate {
     }
 }
 
-
 extension PersonalCategoryController: UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recommendedItems.count
@@ -93,10 +93,9 @@ extension PersonalCategoryController: UITableViewDataSource, UITableViewDelegate
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView == featuredTable{
+        if scrollView == featuredTable && !recommendedItems.isEmpty{
             let contentOffset = max(0,min(50,scrollView.contentOffset.y))
             recommendedHeightAnchor.constant = (130 * designHeightRatio) * (1 - contentOffset/100)
-            
         }
     }
 }
@@ -110,6 +109,13 @@ extension PersonalCategoryController: RecommendedCellDelegate{
         }) {
             guard $0 else {return}
             self.recommendedCollection.reloadData()
+            if self.recommendedItems.isEmpty{
+                self.recommendedHeightAnchor.constant = 0
+                self.recommendedLabelHeight.constant = 0
+                UIView.animate(withDuration: 0.6, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            }
         }
     }
 }

@@ -11,6 +11,16 @@ import UIKit
 
 extension UIView {
     
+    @IBInspectable
+    var cornerRadius: CGFloat{
+        get{
+            return layer.cornerRadius
+        }
+        set{
+            layer.cornerRadius = newValue
+        }
+    }
+    
     func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat, height: CGFloat){
         translatesAutoresizingMaskIntoConstraints = false
         
