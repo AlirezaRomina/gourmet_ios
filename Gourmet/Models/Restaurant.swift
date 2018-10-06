@@ -8,21 +8,13 @@
 
 import Foundation
 
-protocol Restaurant{
-    var id: Int64 {get set}
-    var name: String {get set}
-    var description: String {get set}
-    var imageUrl: String {get set}
-    var categories: [CategoryModel] {get set}
-}
-
-struct RestaurantModel: Restaurant, Codable{
+struct Restauran: Codable{
     var id: Int64
     var name: String
     var description: String
     var imageUrl: String
-    var categories: [CategoryModel]
-    init(id: Int64, name: String, description: String, imageUrl: String, categories: [CategoryModel]) {
+    var categories: [Category]
+    init(id: Int64, name: String, description: String, imageUrl: String, categories: [Category]) {
         self.id = id
         self.name = name
         self.description = description

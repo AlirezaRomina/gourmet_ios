@@ -7,20 +7,8 @@
 //
 
 import UIKit
-
-protocol Item{
-    var id: Int64 {get set}
-    var name: String {get set}
-    var ingredients: String {get set}
-    var imageUrl: String {get set}
-    var rating: Double {get set}
-    var rateNumber: Int {get set}
-    var price: Double {get set}
-    var vegan: Bool {get set}
-    var calories: Double {get set}
-}
-
-struct ItemModel: Item, Codable{
+let dummyItems: [Item] = [Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1)]
+struct Item: Codable{
     var id: Int64
     var name: String
     var ingredients: String

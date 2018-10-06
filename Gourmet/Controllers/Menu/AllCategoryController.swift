@@ -13,13 +13,12 @@ protocol AllCategoryDelegate {
 }
 
 class AllCategoryController: UITableViewController {
-    let cellId = "AllCategoryTableViewCell "
+    let cellId = "allCategoryTableCell"
     var delegate: AllCategoryDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.showsVerticalScrollIndicator = false
-        tableView.register(AllTableViewCell.self, forCellReuseIdentifier: cellId)
+//        tableView.register(AllCategoryTableCell.self, forCellReuseIdentifier: cellId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +29,7 @@ class AllCategoryController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! AllTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! AllCategoryTableCell
         return cell
     }
     
@@ -39,7 +38,7 @@ class AllCategoryController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80 * designHeightRatio
+        return 70 * designHeightRatio
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

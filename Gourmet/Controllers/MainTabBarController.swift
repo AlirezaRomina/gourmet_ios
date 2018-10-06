@@ -12,45 +12,18 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
         setupViewControllers()
+        self.delegate = self
     }
     
     func setupViewControllers(){
-        //Home
-        let homeNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "home_unselected"), selectedImage: #imageLiteral(resourceName: "home_selected"), rootViewController: MenuController())
-        
-        //Search
-        let searchNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "search_unselected"), selectedImage: #imageLiteral(resourceName: "search_selected"))
-        
-        //QRCode
-        let qrcodeNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "qrcode_unselected"), selectedImage: #imageLiteral(resourceName: "qrcode_selected"))
-        
-        //Location
-        let locationNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "location_unselected"), selectedImage: #imageLiteral(resourceName: "location_selected"))
-        
-        //Profile
-        let profileNavController = templateNavController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"), selectedImage: #imageLiteral(resourceName: "profile_selected"))
-        
         tabBar.tintColor = .black
-        viewControllers = [homeNavController,
-                           searchNavController,
-                           qrcodeNavController,
-                           locationNavController,
-                           profileNavController]
-        
-        // Modify tab bar insets
-        guard let items = tabBar.items else {return}
-        for item in items{
-            item.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
+        guard let viewControllers = self.viewControllers as? [UINavigationController] else {return}
+        let tabBarIconArray: [(unselected: UIImage,selected: UIImage)] = [(#imageLiteral(resourceName: "home_unselected"),#imageLiteral(resourceName: "home_selected")),(#imageLiteral(resourceName: "search_unselected"),#imageLiteral(resourceName: "search_selected")),(#imageLiteral(resourceName: "qrcode_unselected"),#imageLiteral(resourceName: "qrcode_selected")),(#imageLiteral(resourceName: "location_unselected"),#imageLiteral(resourceName: "location_selected")),(#imageLiteral(resourceName: "profile_unselected"),#imageLiteral(resourceName: "profile_selected"))]
+        for (index,viewController) in viewControllers.enumerated(){
+            viewController.tabBarItem.image = tabBarIconArray[index].unselected
+            viewController.tabBarItem.selectedImage = tabBarIconArray[index].selected
+            viewController.tabBarItem.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0)
         }
-    }
-    
-    fileprivate func templateNavController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController = UIViewController()) -> UINavigationController{
-        let viewController = rootViewController
-        let navController = UINavigationController(rootViewController: viewController)
-        navController.tabBarItem.image = unselectedImage
-        navController.tabBarItem.selectedImage = selectedImage
-        return navController
     }
 }

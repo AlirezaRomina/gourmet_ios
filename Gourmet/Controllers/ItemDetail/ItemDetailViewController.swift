@@ -13,8 +13,8 @@ class ItemDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     let infoViewController = InfoViewController()
     let rateViewController = RateViewController()
 
-    let itemImageView: CustomImageView = {
-        let iv = CustomImageView()
+    let itemImageView: UIImageView = {
+        let iv = UIImageView()
         iv.image = UIImage(named: "hamburger")
         return iv
     }()

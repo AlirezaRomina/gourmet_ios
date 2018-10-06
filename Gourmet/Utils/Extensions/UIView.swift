@@ -64,7 +64,7 @@ extension UIView {
         guard let image = image else {return}
         let iv = UIImageView()
         iv.image = image
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleToFill
         iv.clipsToBounds = true
         addSubview(iv)
         iv.anchorFill(view: self)

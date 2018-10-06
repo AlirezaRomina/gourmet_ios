@@ -16,12 +16,12 @@ class RecommendedCollectionFlowLayout: UICollectionViewFlowLayout {
         super.prepare()
         if let collectionWidth = collectionView?.bounds.width, let collectionHeight = collectionView?.bounds.height {
             scrollDirection = .horizontal
-            minimumLineSpacing = 3
+            minimumLineSpacing = 6
             let safeAreaSpace: CGFloat = 5
-            let cellWidth = collectionWidth * 150 / 414
+            let cellWidth = collectionWidth * 140 / 414
             let cellHeight =  collectionHeight - safeAreaSpace
             self.itemSize = CGSize(width: cellWidth, height: cellHeight)
-            self.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+            self.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         }
         
     }
@@ -31,11 +31,10 @@ class RecommendedCollectionFlowLayout: UICollectionViewFlowLayout {
         return super.shouldInvalidateLayout(forBoundsChange: newBounds)
     }
     
-    //For scaling : cells will be scaled and alpha will be changed
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
         guard let collectionView = collectionView else { return nil}
-        
+        itemSize = CGSize(width: itemSize.width, height: collectionView.bounds.height - 5 )
         let visibleRect: CGRect = CGRect(x: collectionView.contentOffset.x, y: collectionView.contentOffset.y, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
         guard let layoutAttributes: [UICollectionViewLayoutAttributes] = super.layoutAttributesForElements(in: rect) else { return nil }
         guard let layoutAttributesCopy : [UICollectionViewLayoutAttributes] = NSArray(array: layoutAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes] else { return nil }

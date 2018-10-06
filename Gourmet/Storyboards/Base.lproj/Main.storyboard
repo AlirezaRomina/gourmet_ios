@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZHe-c6-GA0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search-->
+        <scene sceneID="xh1-Yh-Yqx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="ZMX-Sz-Gwk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="search_unselected" selectedImage="search_selected" id="Awg-rD-dgx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Em-9F-TiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-348" y="481"/>
+        </scene>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="gli-9C-NCz">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ZHe-c6-GA0" customClass="MainTabBarController" customModule="Gourmet" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="i5c-q3-WQf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Omb-he-83I" kind="relationship" relationship="viewControllers" id="1Br-RI-wn8"/>
+                        <segue destination="ZMX-Sz-Gwk" kind="relationship" relationship="viewControllers" id="pml-x9-Xck"/>
+                        <segue destination="2gf-Pk-dQu" kind="relationship" relationship="viewControllers" id="6th-Cz-btq"/>
+                        <segue destination="WDZ-bH-ciS" kind="relationship" relationship="viewControllers" id="aeM-R0-2V6"/>
+                        <segue destination="Iz1-i5-H7K" kind="relationship" relationship="viewControllers" id="Jxw-Dk-tMh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="biK-1W-xMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="27.436281859070466"/>
+        </scene>
+        <!--QRCode-->
+        <scene sceneID="z5m-xK-BS5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QRCode" id="2gf-Pk-dQu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="qrcode_unselected" selectedImage="qrcode_selected" id="Jed-vQ-m2G"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n1p-4l-5AB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-54" y="482"/>
+        </scene>
+        <!--Location-->
+        <scene sceneID="InU-hi-Swm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Location" id="WDZ-bH-ciS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="location_unselected" selectedImage="location_selected" id="7dq-QU-Sif"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDj-vA-osR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="248" y="481"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="GDq-5M-zBL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="Iz1-i5-H7K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="profile_unselected" selectedImage="profile_selected" id="OTM-Dh-FUK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDf-fN-XgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="584" y="480"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="Ier-I7-4oZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Menu" id="Omb-he-83I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home_unselected" selectedImage="home_selected" id="LBb-Kr-X9W"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2wd-PJ-1HM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="481"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="home_selected" width="22" height="22"/>
+        <image name="home_unselected" width="22" height="22"/>
+        <image name="location_selected" width="16.5" height="20"/>
+        <image name="location_unselected" width="17.5" height="21"/>
+        <image name="profile_selected" width="22" height="22"/>
+        <image name="profile_unselected" width="22" height="22"/>
+        <image name="qrcode_selected" width="20" height="20"/>
+        <image name="qrcode_unselected" width="21" height="21"/>
+        <image name="search_selected" width="22" height="22"/>
+        <image name="search_unselected" width="22" height="22"/>
+    </resources>
+</document>

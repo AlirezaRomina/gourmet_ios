@@ -8,22 +8,14 @@
 
 import Foundation
 
-protocol Category{
-    var id: Int64 {get set}
-    var name: String {get set}
-    var description: String {get set}
-    var imageUrl: String {get set}
-    var items: [ItemModel] {get set}
-}
-
-struct CategoryModel: Category, Codable{
+struct Category: Codable{
     var id: Int64
     var name: String
     var description: String
     var imageUrl: String
-    var items: [ItemModel]
+    var items: [Item]
     
-    init(id: Int64, name: String, description: String, imageUrl: String, items: [ItemModel]) {
+    init(id: Int64, name: String, description: String, imageUrl: String, items: [Item]) {
         self.id = id
         self.name = name
         self.description = description

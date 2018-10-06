@@ -16,41 +16,56 @@ class CustomSegmentedControl: UIView {
     
     var delegate: CustomSegmentedControlDelegate?
     var buttonArray = [UIButton]()
+    
+    @IBInspectable
+    var commaSeperatedSegmentTitles: String = ""{
+        didSet{
+            let titles = commaSeperatedSegmentTitles.components(separatedBy: ",")
+            segmentTitles = titles
+        }
+    }
+    @IBInspectable
     var segmentTitles = [String](){
         didSet{
             updateView()
         }
     }
     
+    @IBInspectable
     var selectedColor: UIColor = .gourmetPurple{
         didSet{
             selectedLine.backgroundColor = underLineColor
         }
     }
     
+    @IBInspectable
     var underLineColor: UIColor = .lightGray {
         didSet{
             underLine.backgroundColor = underLineColor
         }
     }
     
-    let underLine: UIView = {
+    private let underLine: UIView = {
         let view = UIView()
         view.backgroundColor = .lightGray
         return view
     }()
     
-    let selectedLine: UIView = {
+    private let selectedLine: UIView = {
         let view = UIView()
         view.backgroundColor = .gourmetPurple
         return view
     }()
     
-    convenience init(segmentTitles: [String], underLineColor: UIColor = .lightGray, selectedColor: UIColor = .gourmetPurple) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        updateView()
+        setUI()
+    }
+    
+    convenience init(segmentTitles: [String]) {
         self.init()
         self.segmentTitles = segmentTitles
-        self.selectedColor = selectedColor
-        self.underLineColor = underLineColor
         updateView()
         setUI()
     }
