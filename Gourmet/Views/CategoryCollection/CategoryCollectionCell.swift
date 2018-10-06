@@ -26,7 +26,7 @@ class CategoryCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         background.addMask(image: UIImage.from(color: UIColor(white: 0, alpha: 0.1)))
-        layer.cornerRadius = 8
-        layer.masksToBounds = true
+        contentView.layer.cornerRadius = 8
+        contentView.layer.masksToBounds = true
     }
 }

@@ -13,37 +13,44 @@ extension UIView {
     
     @IBInspectable
     var cornerRadius: CGFloat{
-        get{
-            return layer.cornerRadius
-        }
+        get{return layer.cornerRadius}
+        set{layer.cornerRadius = newValue}
+    }
+    
+    @IBInspectable
+    var shadowRadius: CGFloat{
+        get{return layer.shadowRadius}
         set{
-            layer.cornerRadius = newValue
-        }
+            layer.masksToBounds = newValue == 0
+            layer.shadowRadius = newValue}
+    }
+    
+    @IBInspectable
+    var shadowColor: UIColor{
+        get{return UIColor(cgColor: layer.shadowColor ?? UIColor.clear.cgColor)}
+        set{layer.shadowColor = newValue.cgColor}
+    }
+    
+    @IBInspectable
+    var shadowOffSet: CGSize{
+        get{return layer.shadowOffset}
+        set{layer.shadowOffset = newValue}
+    }
+    
+    @IBInspectable
+    var shadowOpacity: Float{
+        get{return layer.shadowOpacity}
+        set{layer.shadowOpacity = newValue}
     }
     
     func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat, height: CGFloat){
         translatesAutoresizingMaskIntoConstraints = false
-        
-        if let top = top{
-            topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
-        }
-        if let left = left{
-            leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
-        }
-        if let bottom = bottom{
-            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true
-        }
-        if let right = right{
-            rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
-        }
-        
-        if width != 0 {
-            widthAnchor.constraint(equalToConstant: width).isActive = true
-        }
-        
-        if height != 0 {
-            heightAnchor.constraint(equalToConstant: height).isActive = true
-        }
+        if let top = top{topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true}
+        if let left = left{leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true}
+        if let bottom = bottom{bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true}
+        if let right = right{rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true}
+        if width != 0 {widthAnchor.constraint(equalToConstant: width).isActive = true}
+        if height != 0 {heightAnchor.constraint(equalToConstant: height).isActive = true}
     }
     
     func anchorFill(view: UIView){
