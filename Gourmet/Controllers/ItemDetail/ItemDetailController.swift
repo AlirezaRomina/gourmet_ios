@@ -30,6 +30,9 @@ class ItemDetailController: UIViewController, UIGestureRecognizerDelegate {
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         let gradientImage = UIImage.image(withRGBAGradientColors: [1: RGBA(color: .gourmetPurple), 0.5: RGBA(color: .clear)], size: itemImageView.bounds.size)
         itemImageView.addMask(image: gradientImage)
+//        _ = ws?.getRestaurant(restaurantId: 1).done({ (<#Restaurant#>) in
+//            <#code#>
+//        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
