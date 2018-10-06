@@ -8,7 +8,8 @@
 
 import UIKit
 let dummyItems: [Item] = [Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1),Item(id: 1, name: "asd", ingredients: "asd", imageUrl: "asd", rating: 1, rateNumber: 1, price: 1, vegan: false, calories: 1)]
-struct Item: Codable{
+
+struct Item: Serializable{
     var id: Int64
     var name: String
     var ingredients: String

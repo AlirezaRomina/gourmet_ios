@@ -17,6 +17,11 @@
 		4010023E212B742900319E43 /* RecommendedCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010023D212B742900319E43 /* RecommendedCollectionFlowLayout.swift */; };
 		40100240212B749800319E43 /* RecommendedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010023F212B749800319E43 /* RecommendedCollectionCell.swift */; };
 		40100242212B74CB00319E43 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40100241212B74CB00319E43 /* Item.swift */; };
+		401798D1216916AC00BACEEA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401798CB216916AB00BACEEA /* Constants.swift */; };
+		401798D2216916AC00BACEEA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401798CC216916AB00BACEEA /* Router.swift */; };
+		401798D3216916AC00BACEEA /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401798CD216916AB00BACEEA /* Serializable.swift */; };
+		401798D5216916AC00BACEEA /* WebServiceLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401798CF216916AB00BACEEA /* WebServiceLogger.swift */; };
+		401798D6216916AC00BACEEA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401798D0216916AB00BACEEA /* Extension.swift */; };
 		407D35212168C64800346910 /* Item.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407D35202168C64800346910 /* Item.storyboard */; };
 		407EB912216813C20055FF7E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407EB911216813C20055FF7E /* Home.storyboard */; };
 		407EB914216813CA0055FF7E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407EB913216813CA0055FF7E /* Search.storyboard */; };
@@ -86,6 +91,11 @@
 		4010023D212B742900319E43 /* RecommendedCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		4010023F212B749800319E43 /* RecommendedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedCollectionCell.swift; sourceTree = "<group>"; };
 		40100241212B74CB00319E43 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		401798CB216916AB00BACEEA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		401798CC216916AB00BACEEA /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		401798CD216916AB00BACEEA /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		401798CF216916AB00BACEEA /* WebServiceLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceLogger.swift; sourceTree = "<group>"; };
+		401798D0216916AB00BACEEA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		407D35202168C64800346910 /* Item.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Item.storyboard; sourceTree = "<group>"; };
 		407EB911216813C20055FF7E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		407EB913216813CA0055FF7E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -277,22 +287,17 @@
 			path = ItemDetail;
 			sourceTree = "<group>";
 		};
-		40B8AB20212F0AA300119E70 /* Services */ = {
+		40B8AB36212F651700119E70 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				40B8AB36212F651700119E70 /* WebService */,
-				40B8AB23212F0ADD00119E70 /* Module.swift */,
-				40B8AB25212F0B0300119E70 /* ClientSession.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		40B8AB36212F651700119E70 /* WebService */ = {
-			isa = PBXGroup;
-			children = (
+				401798CB216916AB00BACEEA /* Constants.swift */,
+				401798D0216916AB00BACEEA /* Extension.swift */,
+				401798CC216916AB00BACEEA /* Router.swift */,
+				401798CD216916AB00BACEEA /* Serializable.swift */,
+				401798CF216916AB00BACEEA /* WebServiceLogger.swift */,
 				40B8AB21212F0AB700119E70 /* WebService.swift */,
 			);
-			path = WebService;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		40EF3CFC212A106600DE29EF = {
@@ -324,6 +329,7 @@
 				40EF3D08212A106600DE29EF /* AppDelegate.swift */,
 				40EF3D14212A106800DE29EF /* Info.plist */,
 				40EF3D3D212A17DA00DE29EF /* SupportingFiles */,
+				40B8AB36212F651700119E70 /* Networking */,
 				40EF3D41212A19B500DE29EF /* Utils */,
 				40EF3D3C212A17CF00DE29EF /* Views */,
 				40EF3D3B212A17B000DE29EF /* Controllers */,
@@ -408,9 +414,10 @@
 		40EF3D41212A19B500DE29EF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				40B8AB20212F0AA300119E70 /* Services */,
 				40EF3D42212A19BE00DE29EF /* Extensions */,
 				4010022E212ACA6F00319E43 /* Costants.swift */,
+				40B8AB23212F0ADD00119E70 /* Module.swift */,
+				40B8AB25212F0B0300119E70 /* ClientSession.swift */,
 				40848CDA212CA5EC009DE929 /* Cosmos.swift */,
 			);
 			path = Utils;
@@ -669,6 +676,7 @@
 				40A32AD6212DE8C50076067C /* ItemInfoController.swift in Sources */,
 				407EB921216815030055FF7E /* HomeController.swift in Sources */,
 				408123A3212A24420091D1D9 /* CategoryCollectionCell.swift in Sources */,
+				401798D2216916AC00BACEEA /* Router.swift in Sources */,
 				4010023E212B742900319E43 /* RecommendedCollectionFlowLayout.swift in Sources */,
 				407EB9252168151B0055FF7E /* QRCodeController.swift in Sources */,
 				40848CDB212CA5EC009DE929 /* Cosmos.swift in Sources */,
@@ -678,6 +686,8 @@
 				40100237212AE8D700319E43 /* PersonalCategoryController.swift in Sources */,
 				40B8AB26212F0B0300119E70 /* ClientSession.swift in Sources */,
 				40EF3D3F212A190F00DE29EF /* MenuController.swift in Sources */,
+				401798D3216916AC00BACEEA /* Serializable.swift in Sources */,
+				401798D6216916AC00BACEEA /* Extension.swift in Sources */,
 				407EB927216815240055FF7E /* LocationController.swift in Sources */,
 				4010022F212ACA6F00319E43 /* Costants.swift in Sources */,
 				407EB923216815110055FF7E /* SearchController.swift in Sources */,
@@ -690,10 +700,12 @@
 				40A32ADA212DE8EA0076067C /* ItemRateController.swift in Sources */,
 				40966A67212CC5F70065B9FB /* AllCategoryTableCell.swift in Sources */,
 				40A32ADC212DEE3B0076067C /* UIScrollView.swift in Sources */,
+				401798D1216916AC00BACEEA /* Constants.swift in Sources */,
 				407EB9292168152E0055FF7E /* ProfileController.swift in Sources */,
 				40B8AB22212F0AB700119E70 /* WebService.swift in Sources */,
 				40B8AB24212F0ADD00119E70 /* Module.swift in Sources */,
 				408123AB212A33CA0091D1D9 /* UIImage.swift in Sources */,
+				401798D5216916AC00BACEEA /* WebServiceLogger.swift in Sources */,
 				40EF3D46212A1A9C00DE29EF /* UIView.swift in Sources */,
 				40EF3D44212A19C900DE29EF /* UIColor.swift in Sources */,
 				4010022D212AC55000319E43 /* Category.swift in Sources */,
