@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Category: Serializable{
+struct Category: Codable{
     var id: Int64
     var name: String
     var description: String

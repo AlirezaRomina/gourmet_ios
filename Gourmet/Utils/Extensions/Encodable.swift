@@ -1,18 +1,14 @@
 //
-//  Serializable.swift
-//  TestProject
+//  Encodable.swift
+//  Gourmet
 //
-//  Created by Deniz Mersinlioğlu on 30.09.2018.
-//  Copyright © 2018 mersinliogludeniz. All rights reserved.
+//  Created by Deniz Mersinlioğlu on 20.10.2018.
+//  Copyright © 2018 Deniz Mersinlioglu. All rights reserved.
 //
 
 import Foundation
 
-protocol Serializable: Codable {
-    func serialize() -> Data?
-}
-
-extension Serializable {
+extension Encodable {
     func serialize() -> Data? {
         let encoder = JSONEncoder()
         return try? encoder.encode(self)

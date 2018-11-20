@@ -23,14 +23,13 @@ enum Router {
         }
     }
     
-    func promise<T: Serializable>(queryParameter: String = "", parameters: Codable? = nil) -> Promise<T> {
+    func promise<T: Codable>(queryParameter: String = "", parameters: Codable? = nil) -> Promise<T> {
         return Promise<T> { seal in
             var headers =  [String: String]()
             headers[HTTPHeaderField.contentType.rawValue] = ContentType.json.rawValue
             headers[HTTPHeaderField.authentication.rawValue] = NetworkConstants.DevelopmentServer.authToken
             //TODO: Check this casting
-            let parameter = parameters as? Serializable
-            let route = generateRoute(queryParameter: queryParameter, parameters: parameter?.toDict())
+            let route = generateRoute(queryParameter: queryParameter, parameters: parameters?.toDict())
             let url = "\(NetworkConstants.DevelopmentServer.baseURL)\(route.path)"
             WebServiceLogger.logRequestInfo(url: url, route: route, headers: headers)
             Alamofire.request(url, method: route.method, parameters: route.parameters, encoding: route.encoding, headers: headers)

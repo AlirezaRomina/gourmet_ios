@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Restaurant: Serializable{
+struct Restaurant: Codable{
     var id: Int64
     var name: String
     var description: String
